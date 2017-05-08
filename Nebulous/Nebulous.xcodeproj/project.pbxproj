@@ -53,6 +53,7 @@
 		CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forecastr+CLLocation.m"; sourceTree = "<group>"; };
 		CDE570D71EC0EAFB008A71BC /* ForecastrAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastrAPIClient.h; sourceTree = "<group>"; };
 		CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastrAPIClient.m; sourceTree = "<group>"; };
+		CDE570DD1EC0ECFA008A71BC /* apiKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = apiKey.h; path = ../../apiKey.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,16 +98,15 @@
 		CD13632A1EC0E5E300AE71A2 /* Nebulous */ = {
 			isa = PBXGroup;
 			children = (
-				CDE570D21EC0EACB008A71BC /* Utilities */,
 				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
 				CD1363311EC0E5E300AE71A2 /* ViewController.h */,
 				CD1363321EC0E5E300AE71A2 /* ViewController.m */,
-				CD1363341EC0E5E300AE71A2 /* Main.storyboard */,
-				CD1363371EC0E5E300AE71A2 /* Assets.xcassets */,
-				CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */,
+				CDE570DC1EC0EB9B008A71BC /* view */,
+				CDE570D21EC0EACB008A71BC /* Utilities */,
 				CD13633C1EC0E5E300AE71A2 /* Info.plist */,
 				CD13632B1EC0E5E300AE71A2 /* Supporting Files */,
+				CDE570DD1EC0ECFA008A71BC /* apiKey.h */,
 			);
 			path = Nebulous;
 			sourceTree = "<group>";
@@ -139,6 +139,16 @@
 				CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		CDE570DC1EC0EB9B008A71BC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CD1363341EC0E5E300AE71A2 /* Main.storyboard */,
+				CD1363371EC0E5E300AE71A2 /* Assets.xcassets */,
+				CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		ECCED00EA66B263AC7E62FB0 /* Pods */ = {
