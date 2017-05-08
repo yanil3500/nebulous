@@ -14,6 +14,9 @@
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
 		CD1363461EC0E5E300AE71A2 /* NebulousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363451EC0E5E300AE71A2 /* NebulousTests.m */; };
+		CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D41EC0EAFB008A71BC /* Forecastr.m */; };
+		CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */; };
+		CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */; };
 		EAA8632C43A05718E81E401D /* libPods-Nebulous.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3965A7CD5AA5DA9F8546552E /* libPods-Nebulous.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,12 @@
 		CD1363411EC0E5E300AE71A2 /* NebulousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1363451EC0E5E300AE71A2 /* NebulousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulousTests.m; sourceTree = "<group>"; };
 		CD1363471EC0E5E300AE71A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDE570D31EC0EAFB008A71BC /* Forecastr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecastr.h; sourceTree = "<group>"; };
+		CDE570D41EC0EAFB008A71BC /* Forecastr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecastr.m; sourceTree = "<group>"; };
+		CDE570D51EC0EAFB008A71BC /* Forecastr+CLLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forecastr+CLLocation.h"; sourceTree = "<group>"; };
+		CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forecastr+CLLocation.m"; sourceTree = "<group>"; };
+		CDE570D71EC0EAFB008A71BC /* ForecastrAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastrAPIClient.h; sourceTree = "<group>"; };
+		CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastrAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 		CD13632A1EC0E5E300AE71A2 /* Nebulous */ = {
 			isa = PBXGroup;
 			children = (
+				CDE570D21EC0EACB008A71BC /* Utilities */,
 				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
 				CD1363311EC0E5E300AE71A2 /* ViewController.h */,
@@ -116,6 +126,19 @@
 				CD1363471EC0E5E300AE71A2 /* Info.plist */,
 			);
 			path = NebulousTests;
+			sourceTree = "<group>";
+		};
+		CDE570D21EC0EACB008A71BC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CDE570D31EC0EAFB008A71BC /* Forecastr.h */,
+				CDE570D41EC0EAFB008A71BC /* Forecastr.m */,
+				CDE570D51EC0EAFB008A71BC /* Forecastr+CLLocation.h */,
+				CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */,
+				CDE570D71EC0EAFB008A71BC /* ForecastrAPIClient.h */,
+				CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		ECCED00EA66B263AC7E62FB0 /* Pods */ = {
@@ -290,9 +313,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */,
 				CD1363331EC0E5E300AE71A2 /* ViewController.m in Sources */,
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
+				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
+				CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +523,7 @@
 				CD13634C1EC0E5E300AE71A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD13634D1EC0E5E300AE71A2 /* Build configuration list for PBXNativeTarget "NebulousTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +532,7 @@
 				CD13634F1EC0E5E300AE71A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
