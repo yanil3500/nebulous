@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212441EC0F7D200D3FE36 /* LocationHelper.m */; };
 		CD13632D1EC0E5E300AE71A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632C1EC0E5E300AE71A2 /* main.m */; };
 		CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */; };
 		CD1363331EC0E5E300AE71A2 /* ViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* ViewControlla.m */; };
@@ -34,6 +35,8 @@
 		3965A7CD5AA5DA9F8546552E /* libPods-Nebulous.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nebulous.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7425632150F1E99ACF6075A0 /* Pods-Nebulous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.release.xcconfig"; sourceTree = "<group>"; };
 		9B53457CD74C0BAC1524A09C /* Pods-Nebulous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.debug.xcconfig"; sourceTree = "<group>"; };
+		CD1212431EC0F7D200D3FE36 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
+		CD1212441EC0F7D200D3FE36 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		CD1363281EC0E5E300AE71A2 /* Nebulous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD13632C1EC0E5E300AE71A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,14 +101,14 @@
 		CD13632A1EC0E5E300AE71A2 /* Nebulous */ = {
 			isa = PBXGroup;
 			children = (
+				CDE570DF1EC0EE89008A71BC /* model */,
 				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
-				CD1363311EC0E5E300AE71A2 /* ViewControlla.h */,
-				CD1363321EC0E5E300AE71A2 /* ViewControlla.m */,
+				CDE570DE1EC0EE7F008A71BC /* controlla */,
 				CDE570DC1EC0EB9B008A71BC /* view */,
-				CDE570D21EC0EACB008A71BC /* Utilities */,
 				CD13633C1EC0E5E300AE71A2 /* Info.plist */,
 				CD13632B1EC0E5E300AE71A2 /* Supporting Files */,
+				CDE570D21EC0EACB008A71BC /* utilities */,
 			);
 			path = Nebulous;
 			sourceTree = "<group>";
@@ -127,7 +130,7 @@
 			path = NebulousTests;
 			sourceTree = "<group>";
 		};
-		CDE570D21EC0EACB008A71BC /* Utilities */ = {
+		CDE570D21EC0EACB008A71BC /* utilities */ = {
 			isa = PBXGroup;
 			children = (
 				CDE570DD1EC0ECFA008A71BC /* apiKey.h */,
@@ -138,7 +141,7 @@
 				CDE570D71EC0EAFB008A71BC /* ForecastrAPIClient.h */,
 				CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */,
 			);
-			name = Utilities;
+			name = utilities;
 			sourceTree = "<group>";
 		};
 		CDE570DC1EC0EB9B008A71BC /* view */ = {
@@ -149,6 +152,24 @@
 				CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		CDE570DE1EC0EE7F008A71BC /* controlla */ = {
+			isa = PBXGroup;
+			children = (
+				CD1363311EC0E5E300AE71A2 /* ViewControlla.h */,
+				CD1363321EC0E5E300AE71A2 /* ViewControlla.m */,
+			);
+			name = controlla;
+			sourceTree = "<group>";
+		};
+		CDE570DF1EC0EE89008A71BC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CD1212431EC0F7D200D3FE36 /* LocationHelper.h */,
+				CD1212441EC0F7D200D3FE36 /* LocationHelper.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		ECCED00EA66B263AC7E62FB0 /* Pods */ = {
@@ -328,6 +349,7 @@
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
+				CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */,
 				CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
