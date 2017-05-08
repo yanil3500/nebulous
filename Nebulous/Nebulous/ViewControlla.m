@@ -6,13 +6,13 @@
 //  Copyright © 2017 Elyanil Liranzo Castro. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ViewControlla.h"
 
-@interface ViewController ()
+@interface ViewControlla ()
 
 @end
 
-@implementation ViewController
+@implementation ViewControlla
 
 - (void)viewDidLoad {
     [super viewDidLoad];
