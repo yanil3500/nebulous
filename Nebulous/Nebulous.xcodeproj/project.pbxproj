@@ -15,7 +15,7 @@
 		CD1212541EC1457300D3FE36 /* WeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212531EC1457300D3FE36 /* WeatherForecast.m */; };
 		CD13632D1EC0E5E300AE71A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632C1EC0E5E300AE71A2 /* main.m */; };
 		CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */; };
-		CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */; };
+		CD1363331EC0E5E300AE71A2 /* HomeViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */; };
 		CD1363361EC0E5E300AE71A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363341EC0E5E300AE71A2 /* Main.storyboard */; };
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
@@ -56,8 +56,8 @@
 		CD13632C1EC0E5E300AE71A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CD1363311EC0E5E300AE71A2 /* CurrentLocationViewControlla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentLocationViewControlla.h; sourceTree = "<group>"; };
-		CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentLocationViewControlla.m; sourceTree = "<group>"; };
+		CD1363311EC0E5E300AE71A2 /* HomeViewControlla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewControlla.h; sourceTree = "<group>"; };
+		CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewControlla.m; sourceTree = "<group>"; };
 		CD1363351EC0E5E300AE71A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD1363371EC0E5E300AE71A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD13633A1EC0E5E300AE71A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		CDE570DE1EC0EE7F008A71BC /* controlla */ = {
 			isa = PBXGroup;
 			children = (
-				CD1363311EC0E5E300AE71A2 /* CurrentLocationViewControlla.h */,
-				CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */,
+				CD1363311EC0E5E300AE71A2 /* HomeViewControlla.h */,
+				CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */,
 			);
 			name = controlla;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			files = (
 				CD12124E1EC1336600D3FE36 /* DailyForecast.m in Sources */,
 				CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */,
-				CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */,
+				CD1363331EC0E5E300AE71A2 /* HomeViewControlla.m in Sources */,
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,

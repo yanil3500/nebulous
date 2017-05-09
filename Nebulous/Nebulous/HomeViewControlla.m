@@ -6,37 +6,38 @@
 //  Copyright © 2017 Elyanil Liranzo Castro. All rights reserved.
 //
 
-#import "CurrentLocationViewControlla.h"
+#import "HomeViewControlla.h"
 #import "LocationHelper.h"//;
 #import "Location.h"
 #import "DailyForecast.h"
 #import "Forecastr+CLLocation.h"
 
-@interface CurrentLocationViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
+@interface HomeViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
 @property(strong, nonatomic)NSMutableArray *dailyWeather;
 @end
 
-@implementation CurrentLocationViewControlla
+@implementation HomeViewControlla
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentLocation = [[Location alloc]init];
-    self.currentLocation.weatherForecast = [[WeatherForecast alloc] init];
     [[LocationHelper shared] setDelegate:self];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
     self.currentLocation.weatherForecast.delegate = self;
 
-    
 }
+
 
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
+    NSLog(@"Location: Lat: %f Lon: %f",location.coordinate.latitude, location.coordinate.longitude);
     [self.currentLocation setLocation:location];
     [self.currentLocation.weatherForecast getTheWeatherforLocation:location];
 }
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
+    NSLog(@"Location: %@",self.currentLocation.locationName);
 }
 
 #pragma - WeatherForecastDelegate method

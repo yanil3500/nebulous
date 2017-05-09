@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentLocationViewControlla : UIViewController
+@interface HomeViewControlla : UIViewController
 
 
 @end

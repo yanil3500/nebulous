@@ -23,5 +23,6 @@
 +(instancetype)shared;
 -(void)findNameForLocation:(CLLocation *)location;
 -(void)updateLocation;
+-(void)findLatitudeAndLongitudeForAddress:(NSString *)address;
 
 @end
