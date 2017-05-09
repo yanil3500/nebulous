@@ -14,10 +14,15 @@
 
 @interface HomeViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
+@property (weak, nonatomic) IBOutlet UIView *currentWeatherView;
+@property (weak, nonatomic) IBOutlet UIView *hourlyWeatherView;
+@property (weak, nonatomic) IBOutlet UIView *weekWeatherView;
 @property(strong, nonatomic)NSMutableArray *dailyWeather;
 @end
 
 @implementation HomeViewControlla
+- (IBAction)segmentedControl:(UISegmentedControl *)sender {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
