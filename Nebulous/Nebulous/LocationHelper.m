@@ -7,11 +7,11 @@
 //
 
 #import "LocationHelper.h"
-
+#import "Forecastr.h"
 
 @interface LocationHelper()
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *location;
+;
 @end
 
 @implementation LocationHelper
@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         [self requestPermissions];
+        
         self.location = [[CLLocation alloc] init];
     }
     
@@ -50,6 +51,7 @@
 }
 
 
+//Reverses geocode and gets the name of the location based on the coordinates provided.
 -(void)findNameForLocation:(CLLocation *)location{
     __block NSString *locationName;
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -58,9 +60,12 @@
             NSLog(@"Failed to get location name. Error: %@",error.localizedDescription);
             locationName = [self coordinateStringForLocation:location];
         } else if (placemarks && placemarks.count > 0){
-            CLPlacemark *result = [placemarks objectAtIndex:0];
+            //A CLPlacemark object stores placemark data for a given latitude and longitude. Placemark data includes information such as the country, state, city, and street address associated with the specified coordinate.
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
             
-            locationName = [result locality];
+            
+            locationName = [placemark locality];
+            locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             
             //if the locality returns nil, return the coordinate string instead
             if (!locationName) {
@@ -77,6 +82,9 @@
     NSString *str = [[NSString alloc] initWithFormat:@"Lat: %f, Lon: %f",location.coordinate.latitude, location.coordinate.longitude];
     return str;
 }
+-(void)updateLocation{
+    [[self locationManager] startUpdatingLocation];
+}
 
 #pragma mark - CLLocationManagerDelegate methods
 
@@ -92,8 +100,8 @@
     CLLocation *location = [locations lastObject];
     
     self.location = location;
-    
-    //maximize batter power by stopping the location manager as soon as possible
+    [self findNameForLocation:location];
+    //maximize battery power by stopping the location manager as soon as possible
     [self stopUpdating];
     
     [self.delegate didGetLocation:self.location];

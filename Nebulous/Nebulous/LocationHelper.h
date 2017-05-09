@@ -12,16 +12,16 @@
 @protocol LocationHelperDelegate <NSObject>
 
 - (void)didGetLocation:(CLLocation *)location;
-
 @optional
 - (void)didFindLocationName:(NSString *)locationName;
 @end
 
 @interface LocationHelper : NSObject <CLLocationManagerDelegate>
-
+@property (strong, nonatomic) CLLocation *location;
 @property(nonatomic, weak) id <LocationHelperDelegate>delegate;
 
 +(instancetype)shared;
 -(void)findNameForLocation:(CLLocation *)location;
+-(void)updateLocation;
 
 @end

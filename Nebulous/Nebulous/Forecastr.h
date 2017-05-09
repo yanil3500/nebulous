@@ -98,6 +98,8 @@ extern NSString *const kFCTemperatureMin;
 extern NSString *const kFCTemperatureMinError;
 extern NSString *const kFCTemperatureMinTime;
 extern NSString *const kFCApparentTemperature;
+extern NSString *const kFCApparentTemperatureMax;
+extern NSString *const kFCApparentTemperatureMin;
 extern NSString *const kFCTime;
 extern NSString *const kFCVisibility;
 extern NSString *const kFCVisibilityError;

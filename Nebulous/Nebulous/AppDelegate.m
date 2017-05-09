@@ -19,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[Forecastr sharedManager] setApiKey: apiKey_h];
+    [[Forecastr sharedManager] flushCache];
     // Override point for customization after application launch.
     return YES;
 }

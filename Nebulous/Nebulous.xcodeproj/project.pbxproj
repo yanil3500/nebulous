@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212441EC0F7D200D3FE36 /* LocationHelper.m */; };
+		CD1212481EC107E200D3FE36 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212471EC107E200D3FE36 /* Location.m */; };
+		CD12124B1EC12DDA00D3FE36 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */; };
+		CD12124E1EC1336600D3FE36 /* DailyWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124D1EC1336600D3FE36 /* DailyWeather.m */; };
 		CD13632D1EC0E5E300AE71A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632C1EC0E5E300AE71A2 /* main.m */; };
 		CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */; };
-		CD1363331EC0E5E300AE71A2 /* ViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* ViewControlla.m */; };
+		CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */; };
 		CD1363361EC0E5E300AE71A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363341EC0E5E300AE71A2 /* Main.storyboard */; };
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
@@ -37,12 +40,18 @@
 		9B53457CD74C0BAC1524A09C /* Pods-Nebulous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1212431EC0F7D200D3FE36 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
 		CD1212441EC0F7D200D3FE36 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
+		CD1212461EC107E200D3FE36 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		CD1212471EC107E200D3FE36 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		CD1212491EC12DDA00D3FE36 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
+		CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
+		CD12124C1EC1336600D3FE36 /* DailyWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyWeather.h; sourceTree = "<group>"; };
+		CD12124D1EC1336600D3FE36 /* DailyWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyWeather.m; sourceTree = "<group>"; };
 		CD1363281EC0E5E300AE71A2 /* Nebulous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD13632C1EC0E5E300AE71A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CD1363311EC0E5E300AE71A2 /* ViewControlla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControlla.h; sourceTree = "<group>"; };
-		CD1363321EC0E5E300AE71A2 /* ViewControlla.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControlla.m; sourceTree = "<group>"; };
+		CD1363311EC0E5E300AE71A2 /* CurrentLocationViewControlla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentLocationViewControlla.h; sourceTree = "<group>"; };
+		CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentLocationViewControlla.m; sourceTree = "<group>"; };
 		CD1363351EC0E5E300AE71A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD1363371EC0E5E300AE71A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD13633A1EC0E5E300AE71A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,8 +166,8 @@
 		CDE570DE1EC0EE7F008A71BC /* controlla */ = {
 			isa = PBXGroup;
 			children = (
-				CD1363311EC0E5E300AE71A2 /* ViewControlla.h */,
-				CD1363321EC0E5E300AE71A2 /* ViewControlla.m */,
+				CD1363311EC0E5E300AE71A2 /* CurrentLocationViewControlla.h */,
+				CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */,
 			);
 			name = controlla;
 			sourceTree = "<group>";
@@ -168,6 +177,12 @@
 			children = (
 				CD1212431EC0F7D200D3FE36 /* LocationHelper.h */,
 				CD1212441EC0F7D200D3FE36 /* LocationHelper.m */,
+				CD1212461EC107E200D3FE36 /* Location.h */,
+				CD1212471EC107E200D3FE36 /* Location.m */,
+				CD1212491EC12DDA00D3FE36 /* CurrentWeather.h */,
+				CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */,
+				CD12124C1EC1336600D3FE36 /* DailyWeather.h */,
+				CD12124D1EC1336600D3FE36 /* DailyWeather.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -344,12 +359,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD12124E1EC1336600D3FE36 /* DailyWeather.m in Sources */,
 				CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */,
-				CD1363331EC0E5E300AE71A2 /* ViewControlla.m in Sources */,
+				CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */,
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
+				CD12124B1EC12DDA00D3FE36 /* CurrentWeather.m in Sources */,
 				CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */,
+				CD1212481EC107E200D3FE36 /* Location.m in Sources */,
 				CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
