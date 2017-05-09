@@ -131,7 +131,7 @@
         <scene sceneID="Te2-m7-vb2">
             <objects>
                 <viewController title="hourlyWeatherView" id="qY2-wK-Vws" sceneMemberID="viewController">
-                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="C1L-t9-xfR">
+                    <view key="view" contentMode="scaleToFill" id="C1L-t9-xfR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -157,7 +157,7 @@
         <scene sceneID="8ZZ-aa-rO2">
             <objects>
                 <viewController title="weekWeatherView" id="cNK-Ed-wrG" sceneMemberID="viewController">
-                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="UA1-l3-CaZ">
+                    <view key="view" contentMode="scaleToFill" id="UA1-l3-CaZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

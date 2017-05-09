@@ -21,10 +21,32 @@
 @end
 
 @implementation HomeViewControlla
+//Uses segmented controls to change views
 - (IBAction)segmentedControl:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.currentWeatherView setAlpha:1];
+            [self.hourlyWeatherView setAlpha:0];
+            [self.weekWeatherView setAlpha:0];
+        }];
+    } else if (sender.selectedSegmentIndex == 1){
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.currentWeatherView setAlpha:0];
+            [self.hourlyWeatherView setAlpha:1];
+            [self.weekWeatherView setAlpha:0];
+        }];
+    } else{
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.currentWeatherView setAlpha:0];
+            [self.hourlyWeatherView setAlpha:0];
+            [self.weekWeatherView setAlpha:1];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
+    [self.hourlyWeatherView setAlpha:0];
+    [self.weekWeatherView setAlpha:0];
     [super viewDidLoad];
     self.currentLocation = [[Location alloc]init];
     [[LocationHelper shared] setDelegate:self];
