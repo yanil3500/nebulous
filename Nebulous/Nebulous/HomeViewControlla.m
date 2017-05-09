@@ -11,13 +11,15 @@
 #import "Location.h"
 #import "DailyForecast.h"
 #import "Forecastr+CLLocation.h"
+#import "HourlyWeatherViewControlla.h"
 
 @interface HomeViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
-@property (weak, nonatomic) IBOutlet UIView *currentWeatherView;
-@property (weak, nonatomic) IBOutlet UIView *hourlyWeatherView;
-@property (weak, nonatomic) IBOutlet UIView *weekWeatherView;
+@property(weak, nonatomic) IBOutlet UIView *currentWeatherView;
+@property(weak, nonatomic) IBOutlet UIView *hourlyWeatherView;
+@property(weak, nonatomic) IBOutlet UIView *weekWeatherView;
 @property(strong, nonatomic)NSMutableArray *dailyWeather;
+@property(strong, nonatomic)HourlyWeatherViewControlla *hourlyViewControlla;
 @end
 
 @implementation HomeViewControlla
@@ -53,13 +55,7 @@
     [[LocationHelper shared] setDelegate:self];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
     self.currentLocation.weatherForecast.delegate = self;
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationItem setTitle:@"Money"];
-    NSLog(@"Location (Inside of viewWillAppear): %@",self.currentLocation.locationName);
+    self.hourlyViewControlla = self.childViewControllers[1];
 }
 
 
@@ -78,9 +74,17 @@
 -(void)currentWeatherForLocation:(id)weather{
     WeatherForecast *forecast = (WeatherForecast *)weather;
     self.currentLocation.weatherForecast = forecast;
+    [self.hourlyViewControlla setHourlyWeather:forecast.hourlyForecasts];
     for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
         NSLog(@"Daily Forecast: %@",dailyforecast.temperatureMax);
     }
+}
+
+
+
+#pragma -prepareForSegue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [super prepareForSegue:segue sender:sender];
 }
 
 @end

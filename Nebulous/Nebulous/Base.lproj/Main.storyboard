@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dVK-Yn-sIc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtT-Jh-N7C">
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <connections>
-                                    <segue destination="qY2-wK-Vws" kind="embed" id="85n-3z-9yE"/>
+                                    <segue destination="qY2-wK-Vws" kind="embed" identifier="HourlyWeatherViewControlla" id="85n-3z-9yE"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Nd-mr-zhS">
@@ -132,24 +132,27 @@
         <!--hourlyWeatherView-->
         <scene sceneID="Te2-m7-vb2">
             <objects>
-                <viewController title="hourlyWeatherView" id="qY2-wK-Vws" sceneMemberID="viewController">
+                <viewController title="hourlyWeatherView" id="qY2-wK-Vws" customClass="HourlyWeatherViewControlla" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C1L-t9-xfR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hourlyWeatherView" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Te-he-Onv">
-                                <rect key="frame" x="79.5" y="265" width="216.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddY-Yj-hl7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Te-he-Onv" firstAttribute="centerX" secondItem="C1L-t9-xfR" secondAttribute="centerX" id="ZWD-gc-lx2"/>
-                            <constraint firstItem="7Te-he-Onv" firstAttribute="centerY" secondItem="C1L-t9-xfR" secondAttribute="centerY" id="y8w-11-03D"/>
+                            <constraint firstItem="ddY-Yj-hl7" firstAttribute="top" secondItem="C1L-t9-xfR" secondAttribute="top" id="J4H-pT-G8b"/>
+                            <constraint firstAttribute="bottom" secondItem="ddY-Yj-hl7" secondAttribute="bottom" id="LlN-8O-UE4"/>
+                            <constraint firstItem="ddY-Yj-hl7" firstAttribute="leading" secondItem="C1L-t9-xfR" secondAttribute="leading" id="iMb-Nm-2Di"/>
+                            <constraint firstAttribute="trailing" secondItem="ddY-Yj-hl7" secondAttribute="trailing" id="qQ9-Kx-2QU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hourlyTableView" destination="ddY-Yj-hl7" id="8fN-UJ-HOu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3d-qj-ZEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

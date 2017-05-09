@@ -13,6 +13,7 @@
 		CD12124E1EC1336600D3FE36 /* DailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124D1EC1336600D3FE36 /* DailyForecast.m */; };
 		CD1212511EC1405200D3FE36 /* HourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212501EC1405200D3FE36 /* HourlyForecast.m */; };
 		CD1212541EC1457300D3FE36 /* WeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212531EC1457300D3FE36 /* WeatherForecast.m */; };
+		CD1212661EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */; };
 		CD13632D1EC0E5E300AE71A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632C1EC0E5E300AE71A2 /* main.m */; };
 		CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */; };
 		CD1363331EC0E5E300AE71A2 /* HomeViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */; };
@@ -52,6 +53,8 @@
 		CD1212501EC1405200D3FE36 /* HourlyForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyForecast.m; sourceTree = "<group>"; };
 		CD1212521EC1457300D3FE36 /* WeatherForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherForecast.h; sourceTree = "<group>"; };
 		CD1212531EC1457300D3FE36 /* WeatherForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherForecast.m; sourceTree = "<group>"; };
+		CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyWeatherViewControlla.h; sourceTree = "<group>"; };
+		CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyWeatherViewControlla.m; sourceTree = "<group>"; };
 		CD1363281EC0E5E300AE71A2 /* Nebulous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD13632C1EC0E5E300AE71A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 		CDE570DE1EC0EE7F008A71BC /* controlla */ = {
 			isa = PBXGroup;
 			children = (
+				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
+				CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */,
 				CD1363311EC0E5E300AE71A2 /* HomeViewControlla.h */,
 				CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */,
 			);
@@ -379,6 +384,7 @@
 				CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */,
 				CD1212481EC107E200D3FE36 /* Location.m in Sources */,
 				CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */,
+				CD1212661EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m in Sources */,
 				CD1212511EC1405200D3FE36 /* HourlyForecast.m in Sources */,
 				CD1212541EC1457300D3FE36 /* WeatherForecast.m in Sources */,
 			);

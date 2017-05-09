@@ -14,13 +14,13 @@
 -(id)initWithHourlyDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.feelsLike = dictionary[kFCApparentTemperature];
-        self.humidity = dictionary[kFCHumidity];
-        self.temperature = dictionary[kFCTemperature];
-        self.precipProbability = dictionary[kFCPrecipProbability];
-        self.windBearing = dictionary[kFCWindBearing];
-        self.time = dictionary[kFCTime];
-        self.icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
+        _feelsLike = [dictionary[kFCApparentTemperature] stringValue];
+        _humidity = [dictionary[kFCHumidity] stringValue];
+        _temperature = [dictionary[kFCTemperature] stringValue];
+        _precipProbability = [dictionary[kFCPrecipProbability] stringValue];
+        _windBearing = [dictionary[kFCWindBearing] stringValue];
+        _time = [dictionary[kFCTime] stringValue];
+        _icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
     }
     return self;
 }
