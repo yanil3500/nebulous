@@ -7,15 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WeatherForecast.h"
 
 
 @import CoreLocation;
 
 @interface Location : NSObject
 
-@property(readwrite)CLLocationCoordinate2D location;
+@property(readwrite)CLLocation *location;
 
 @property(strong, nonatomic)NSString *locationName;
 
--(id)initWithLocation:(CLLocationCoordinate2D)location andLocationName:(NSString *)locationName;
+@property(strong, nonatomic)WeatherForecast *weatherForecast;
+
+-(id)initWithLocation:(CLLocation *)location andLocationName:(NSString *)locationName;
 @end

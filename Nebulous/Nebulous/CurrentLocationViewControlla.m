@@ -9,9 +9,10 @@
 #import "CurrentLocationViewControlla.h"
 #import "LocationHelper.h"//;
 #import "Location.h"
+#import "DailyForecast.h"
 #import "Forecastr+CLLocation.h"
 
-@interface CurrentLocationViewControlla () <LocationHelperDelegate>
+@interface CurrentLocationViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
 @property(strong, nonatomic)NSMutableArray *dailyWeather;
 @end
@@ -21,43 +22,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentLocation = [[Location alloc]init];
+    self.currentLocation.weatherForecast = [[WeatherForecast alloc] init];
     [[LocationHelper shared] setDelegate:self];
+    self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
+    self.currentLocation.weatherForecast.delegate = self;
+
     
 }
-
-#pragma - CurrentLocationViewControlla helper methods
-//-(void)getForecastForCurrentLocation:(CLLocationCoordinate2D)location{
-//    NSArray *exclusions = @[kFCAlerts, kFCFlags, kFCMinutelyForecast, kFCOzone];
-//    [[Forecastr sharedManager]getForecastForLatitude:location.latitude longitude:location.longitude time:nil exclusions:exclusions success:^(id JSON) {
-//        NSLog(@"Daily Weather: %@", JSON[kFCHourlyForecast][@"data"]);
-//        NSArray *dailyForecasts = [[NSArray alloc] initWithArray:JSON[kFCDailyForecast][@"data"]];
-//        NSArray *hourlyForecasts = [[NSArray alloc] initWithArray:JSON[kFCHourlyForecast][@"data"]];
-//        self.dailyWeather = [[NSMutableArray alloc] init];
-//        for (NSDictionary* daily in dailyForecasts) {
-//            DailyWeather *dailyForeca = [[DailyWeather alloc] initWithDailyDictionary:daily];
-//            NSLog(@"The daily forecast: %@",dailyForeca.humidity);
-//            [self.dailyWeather addObject:dailyForeca];
-//        }
-//        for (NSDictionary *hourly in hourlyForecasts) {
-//            HourlyWeather *hourForecast = [[HourlyWeather alloc]initWithHourlyDictionary:hourly];
-//            NSLog(@"The hourly forecast: %@", hourForecast.temperature );
-//        }
-//        
-//        self.currentWeather = [[CurrentWeather alloc]initWithCurrentlyDictionary:JSON[kFCCurrentlyForecast]];
-//    } failure:^(NSError *error, id response) {
-//        NSLog(@"Error while retrieving weather data: %@",[[Forecastr sharedManager] messageForError:error withResponse:response]);
-//    }];
-//}
 
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
-    [self.currentLocation setLocation:location.coordinate];
-//    [self getForecastForCurrentLocation:self.currentLocation.location];
-    
-
+    [self.currentLocation setLocation:location];
+    [self.currentLocation.weatherForecast getTheWeatherforLocation:location];
 }
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
+}
+
+#pragma - WeatherForecastDelegate method
+-(void)currentWeatherForLocation:(id)weather{
+    WeatherForecast *forecast = (WeatherForecast *)weather;
+    self.currentLocation.weatherForecast = forecast;
+    for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
+        NSLog(@"Daily Forecast: %@",dailyforecast.temperatureMax);
+    }
 }
 
 @end

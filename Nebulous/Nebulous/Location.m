@@ -10,7 +10,7 @@
 
 @implementation Location
 
--(id)initWithLocation:(CLLocationCoordinate2D)location andLocationName:(NSString *)locationName{
+-(id)initWithLocation:(CLLocation *)location andLocationName:(NSString *)locationName{
     self = [super init];
     if (self) {
         self.location = location;
