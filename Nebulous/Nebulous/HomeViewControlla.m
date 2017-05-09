@@ -25,6 +25,7 @@
 - (IBAction)segmentedControl:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
         [UIView animateWithDuration:0.2 animations:^{
+            [self.navigationItem setTitle:self.currentLocation.locationName];
             [self.currentWeatherView setAlpha:1];
             [self.hourlyWeatherView setAlpha:0];
             [self.weekWeatherView setAlpha:0];
@@ -45,14 +46,20 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [self.hourlyWeatherView setAlpha:0];
     [self.weekWeatherView setAlpha:0];
-    [super viewDidLoad];
     self.currentLocation = [[Location alloc]init];
     [[LocationHelper shared] setDelegate:self];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
     self.currentLocation.weatherForecast.delegate = self;
+    
+}
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationItem setTitle:@"Money"];
+    NSLog(@"Location (Inside of viewWillAppear): %@",self.currentLocation.locationName);
 }
 
 

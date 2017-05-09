@@ -122,10 +122,11 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     CLLocation *location = [locations lastObject];
     
+    [self findNameForLocation:location];
     self.location = location;
     
     NSLog(@"Location for: Lat: %f Lon: %f",location.coordinate.latitude, location.coordinate.longitude);
-    [self findNameForLocation:location];
+    
     //maximize battery power by stopping the location manager as soon as possible
     [self stopUpdating];
     
