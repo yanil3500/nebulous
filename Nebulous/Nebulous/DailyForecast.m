@@ -6,15 +6,15 @@
 //  Copyright © 2017 Elyanil Liranzo Castro. All rights reserved.
 //
 #import "Forecastr.h"
-#import "DailyWeather.h"
+#import "DailyForecast.h"
 
-@implementation DailyWeather
+@implementation DailyForecast
 
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.feelsLikeTempMax = dictionary[kFCApparentTemperatureMax];
-        self.feelsLikeTempMin = dictionary[kFCApparentTemperatureMin];
+        self.temperatureMax = dictionary[kFCApparentTemperatureMax];
+        self.temperatureMin = dictionary[kFCApparentTemperatureMin];
         self.icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
         self.pressure = dictionary[kFCPressure];
         self.dewPoint = dictionary[kFCDewPoint];

@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DailyWeather : NSObject
+@interface DailyForecast : NSObject
 
-@property(strong, nonatomic) NSString *feelsLikeTempMax;
-@property(strong, nonatomic) NSString *feelsLikeTempMin;
+@property(strong, nonatomic) NSString *temperatureMax;
+@property(strong, nonatomic) NSString *temperatureMin;
 @property(strong, nonatomic) NSString *humidity;
 @property(strong, nonatomic) NSString *dewPoint;
 @property(strong, nonatomic) NSString *visibility;

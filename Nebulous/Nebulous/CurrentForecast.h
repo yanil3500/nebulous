@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentWeather : NSObject
+@interface CurrentForecast : NSObject
 
 
 @property(strong, nonatomic) NSString *feelsLikeTemp;

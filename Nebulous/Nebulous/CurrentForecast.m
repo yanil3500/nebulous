@@ -6,9 +6,9 @@
 //  Copyright © 2017 Elyanil Liranzo Castro. All rights reserved.
 //
 
-#import "CurrentWeather.h"
+#import "CurrentForecast.h"
 #import "Forecastr.h"
-@implementation CurrentWeather
+@implementation CurrentForecast
 
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary{
     self = [super init];

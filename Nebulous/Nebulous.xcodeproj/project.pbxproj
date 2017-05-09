@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212441EC0F7D200D3FE36 /* LocationHelper.m */; };
 		CD1212481EC107E200D3FE36 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212471EC107E200D3FE36 /* Location.m */; };
-		CD12124B1EC12DDA00D3FE36 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */; };
-		CD12124E1EC1336600D3FE36 /* DailyWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124D1EC1336600D3FE36 /* DailyWeather.m */; };
+		CD12124B1EC12DDA00D3FE36 /* CurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124A1EC12DDA00D3FE36 /* CurrentForecast.m */; };
+		CD12124E1EC1336600D3FE36 /* DailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD12124D1EC1336600D3FE36 /* DailyForecast.m */; };
+		CD1212511EC1405200D3FE36 /* HourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1212501EC1405200D3FE36 /* HourlyForecast.m */; };
 		CD13632D1EC0E5E300AE71A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632C1EC0E5E300AE71A2 /* main.m */; };
 		CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */; };
 		CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363321EC0E5E300AE71A2 /* CurrentLocationViewControlla.m */; };
@@ -42,10 +43,12 @@
 		CD1212441EC0F7D200D3FE36 /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		CD1212461EC107E200D3FE36 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		CD1212471EC107E200D3FE36 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		CD1212491EC12DDA00D3FE36 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
-		CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
-		CD12124C1EC1336600D3FE36 /* DailyWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyWeather.h; sourceTree = "<group>"; };
-		CD12124D1EC1336600D3FE36 /* DailyWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyWeather.m; sourceTree = "<group>"; };
+		CD1212491EC12DDA00D3FE36 /* CurrentForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentForecast.h; sourceTree = "<group>"; };
+		CD12124A1EC12DDA00D3FE36 /* CurrentForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentForecast.m; sourceTree = "<group>"; };
+		CD12124C1EC1336600D3FE36 /* DailyForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyForecast.h; sourceTree = "<group>"; };
+		CD12124D1EC1336600D3FE36 /* DailyForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyForecast.m; sourceTree = "<group>"; };
+		CD12124F1EC1405200D3FE36 /* HourlyForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyForecast.h; sourceTree = "<group>"; };
+		CD1212501EC1405200D3FE36 /* HourlyForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyForecast.m; sourceTree = "<group>"; };
 		CD1363281EC0E5E300AE71A2 /* Nebulous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD13632C1EC0E5E300AE71A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -179,10 +182,12 @@
 				CD1212441EC0F7D200D3FE36 /* LocationHelper.m */,
 				CD1212461EC107E200D3FE36 /* Location.h */,
 				CD1212471EC107E200D3FE36 /* Location.m */,
-				CD1212491EC12DDA00D3FE36 /* CurrentWeather.h */,
-				CD12124A1EC12DDA00D3FE36 /* CurrentWeather.m */,
-				CD12124C1EC1336600D3FE36 /* DailyWeather.h */,
-				CD12124D1EC1336600D3FE36 /* DailyWeather.m */,
+				CD1212491EC12DDA00D3FE36 /* CurrentForecast.h */,
+				CD12124A1EC12DDA00D3FE36 /* CurrentForecast.m */,
+				CD12124C1EC1336600D3FE36 /* DailyForecast.h */,
+				CD12124D1EC1336600D3FE36 /* DailyForecast.m */,
+				CD12124F1EC1405200D3FE36 /* HourlyForecast.h */,
+				CD1212501EC1405200D3FE36 /* HourlyForecast.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -359,16 +364,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD12124E1EC1336600D3FE36 /* DailyWeather.m in Sources */,
+				CD12124E1EC1336600D3FE36 /* DailyForecast.m in Sources */,
 				CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */,
 				CD1363331EC0E5E300AE71A2 /* CurrentLocationViewControlla.m in Sources */,
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
-				CD12124B1EC12DDA00D3FE36 /* CurrentWeather.m in Sources */,
+				CD12124B1EC12DDA00D3FE36 /* CurrentForecast.m in Sources */,
 				CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */,
 				CD1212481EC107E200D3FE36 /* Location.m in Sources */,
 				CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */,
+				CD1212511EC1405200D3FE36 /* HourlyForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,12 +10,9 @@
 #import "LocationHelper.h"//;
 #import "Location.h"
 #import "Forecastr+CLLocation.h"
-#import "CurrentWeather.h"
-#import "DailyWeather.h"
 
 @interface CurrentLocationViewControlla () <LocationHelperDelegate>
 @property(strong, nonatomic)Location *currentLocation;
-@property(strong, nonatomic)CurrentWeather *currentWeather;
 @property(strong, nonatomic)NSMutableArray *dailyWeather;
 @end
 
@@ -24,33 +21,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentLocation = [[Location alloc]init];
-    self.currentWeather = [[CurrentWeather alloc]init];
     [[LocationHelper shared] setDelegate:self];
     
 }
 
 #pragma - CurrentLocationViewControlla helper methods
--(void)getForecastForCurrentLocation:(CLLocationCoordinate2D)location{
-    NSArray *exclusions = @[kFCAlerts, kFCFlags, kFCMinutelyForecast, kFCOzone];
-    [[Forecastr sharedManager]getForecastForLatitude:location.latitude longitude:location.longitude time:nil exclusions:exclusions success:^(id JSON) {
-        NSLog(@"Daily Weather: %@", JSON[kFCCurrentlyForecast]);
-        NSArray *dailyForecast = [[NSArray alloc] initWithArray:JSON[kFCDailyForecast][@"data"]];
-        self.dailyWeather = [[NSMutableArray alloc] init];
-        for (NSDictionary* daily in dailyForecast) {
-            DailyWeather *dailyForeca = [[DailyWeather alloc] initWithDailyDictionary:daily];
-            NSLog(@"The daily forecast: %@",dailyForeca.humidity);
-            [self.dailyWeather addObject:dailyForeca];
-        }
-        self.currentWeather = [[CurrentWeather alloc]initWithCurrentlyDictionary:JSON[kFCCurrentlyForecast]];
-    } failure:^(NSError *error, id response) {
-        NSLog(@"Error while retrieving weather data: %@",[[Forecastr sharedManager] messageForError:error withResponse:response]);
-    }];
-}
+//-(void)getForecastForCurrentLocation:(CLLocationCoordinate2D)location{
+//    NSArray *exclusions = @[kFCAlerts, kFCFlags, kFCMinutelyForecast, kFCOzone];
+//    [[Forecastr sharedManager]getForecastForLatitude:location.latitude longitude:location.longitude time:nil exclusions:exclusions success:^(id JSON) {
+//        NSLog(@"Daily Weather: %@", JSON[kFCHourlyForecast][@"data"]);
+//        NSArray *dailyForecasts = [[NSArray alloc] initWithArray:JSON[kFCDailyForecast][@"data"]];
+//        NSArray *hourlyForecasts = [[NSArray alloc] initWithArray:JSON[kFCHourlyForecast][@"data"]];
+//        self.dailyWeather = [[NSMutableArray alloc] init];
+//        for (NSDictionary* daily in dailyForecasts) {
+//            DailyWeather *dailyForeca = [[DailyWeather alloc] initWithDailyDictionary:daily];
+//            NSLog(@"The daily forecast: %@",dailyForeca.humidity);
+//            [self.dailyWeather addObject:dailyForeca];
+//        }
+//        for (NSDictionary *hourly in hourlyForecasts) {
+//            HourlyWeather *hourForecast = [[HourlyWeather alloc]initWithHourlyDictionary:hourly];
+//            NSLog(@"The hourly forecast: %@", hourForecast.temperature );
+//        }
+//        
+//        self.currentWeather = [[CurrentWeather alloc]initWithCurrentlyDictionary:JSON[kFCCurrentlyForecast]];
+//    } failure:^(NSError *error, id response) {
+//        NSLog(@"Error while retrieving weather data: %@",[[Forecastr sharedManager] messageForError:error withResponse:response]);
+//    }];
+//}
 
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
     [self.currentLocation setLocation:location.coordinate];
-    [self getForecastForCurrentLocation:self.currentLocation.location];
+//    [self getForecastForCurrentLocation:self.currentLocation.location];
     
 
 }
