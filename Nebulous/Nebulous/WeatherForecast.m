@@ -18,13 +18,13 @@
 -(id)initWithWeatherDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.currentForecast = [[CurrentForecast alloc]initWithCurrentlyDictionary:dictionary[kFCCurrentlyForecast]];
-        self.dailyForecasts = [[NSMutableArray alloc] init];
+        _currentForecast = [[CurrentForecast alloc]initWithCurrentlyDictionary:dictionary[kFCCurrentlyForecast]];
+        _dailyForecasts = [[NSMutableArray alloc] init];
         for (NSDictionary *dailyDictionary in dictionary[kFCDailyForecast][@"data"]) {
             DailyForecast *dailyWeather = [[DailyForecast alloc] initWithDailyDictionary:dailyDictionary];
             [self.dailyForecasts addObject:dailyWeather];
         }
-        self.hourlyForecasts = [[NSMutableArray alloc] init];
+        _hourlyForecasts = [[NSMutableArray alloc] init];
         for (NSDictionary *hourlyDictionary in dictionary[kFCHourlyForecast][@"data"]) {
             HourlyForecast* hourlyWeather = [[HourlyForecast alloc] initWithHourlyDictionary:hourlyDictionary];
             [self.hourlyForecasts addObject:hourlyWeather];

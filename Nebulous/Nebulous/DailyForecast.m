@@ -13,8 +13,8 @@
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.temperatureMax = dictionary[kFCApparentTemperatureMax];
-        self.temperatureMin = dictionary[kFCApparentTemperatureMin];
+        self.temperatureMax = [self temperatureFormatter:dictionary[kFCApparentTemperatureMax]];
+        self.temperatureMin = [self temperatureFormatter:dictionary[kFCApparentTemperatureMin]];
         self.icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
         self.pressure = dictionary[kFCPressure];
         self.dewPoint = dictionary[kFCDewPoint];
@@ -26,6 +26,14 @@
         
     }
     return self;
+}
+
+-(NSString *)fahrenheitToCelsius:(NSString *)temperature{
+    
+    return [[NSString alloc] initWithFormat:@"%.02f",(([temperature doubleValue] - 32) * (5 / 9))];
+}
+-(NSString *)temperatureFormatter:(NSString *)temperature{
+    return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
 
 
