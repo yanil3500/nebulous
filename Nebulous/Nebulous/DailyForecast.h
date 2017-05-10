@@ -20,6 +20,8 @@
 @property(strong, nonatomic) NSString *icon;
 @property(strong, nonatomic) NSString *time;
 @property(strong, nonatomic) NSString *summary;
+@property(strong, nonatomic) NSString *temperatureCelsiusMax;
+@property(strong, nonatomic) NSString *temperatureCelsiusMin;
 
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary;
 @end

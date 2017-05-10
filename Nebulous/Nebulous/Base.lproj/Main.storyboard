@@ -90,7 +90,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="CMA-RH-YIw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="CMA-RH-YIw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -106,33 +106,81 @@
         <!--currentWeatherView-->
         <scene sceneID="tgW-3b-ZpW">
             <objects>
-                <viewController title="currentWeatherView" id="m3P-PO-S2F" sceneMemberID="viewController">
+                <viewController title="currentWeatherView" id="m3P-PO-S2F" customClass="CurrentWeatherViewControlla" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KOa-NR-uh7"/>
+                        <viewControllerLayoutGuide type="bottom" id="HWB-am-hEx"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ne1-yo-26I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentWeatherView" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJc-Rq-ZE9">
-                                <rect key="frame" x="75" y="265" width="226.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQY-8m-iUb">
+                                <rect key="frame" x="9" y="8" width="134" height="131"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feelsLike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyF-mF-hIz">
+                                <rect key="frame" x="9" y="147" width="134" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="26t-5G-mPK"/>
+                                    <constraint firstAttribute="width" constant="134" id="QgQ-Al-QFg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-BS-nvk">
+                                <rect key="frame" x="159" y="259" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="O4q-11-57R"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-M2-gk8">
+                                <rect key="frame" x="159" y="467" width="200" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OJc-Rq-ZE9" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="4b9-zo-Hea"/>
-                            <constraint firstItem="OJc-Rq-ZE9" firstAttribute="centerY" secondItem="ne1-yo-26I" secondAttribute="centerY" id="5ay-5e-dio"/>
+                            <constraint firstItem="zQY-8m-iUb" firstAttribute="leading" secondItem="ne1-yo-26I" secondAttribute="leading" constant="9" id="KEM-XA-OoV"/>
+                            <constraint firstAttribute="trailing" secondItem="sTR-BS-nvk" secondAttribute="trailing" constant="16" id="Ov8-qr-Jz4"/>
+                            <constraint firstItem="sTR-BS-nvk" firstAttribute="top" secondItem="KOa-NR-uh7" secondAttribute="bottom" constant="259" id="Tam-6H-3vU"/>
+                            <constraint firstItem="QE7-M2-gk8" firstAttribute="width" secondItem="sTR-BS-nvk" secondAttribute="width" id="WdD-gM-vfk"/>
+                            <constraint firstItem="HWB-am-hEx" firstAttribute="top" secondItem="sTR-BS-nvk" secondAttribute="bottom" constant="100" id="daF-ub-Wne"/>
+                            <constraint firstItem="FyF-mF-hIz" firstAttribute="leading" secondItem="zQY-8m-iUb" secondAttribute="leading" id="fJC-He-46e"/>
+                            <constraint firstItem="FyF-mF-hIz" firstAttribute="top" secondItem="ne1-yo-26I" secondAttribute="top" constant="147" id="jxX-SB-BDN"/>
+                            <constraint firstItem="QE7-M2-gk8" firstAttribute="centerX" secondItem="sTR-BS-nvk" secondAttribute="centerX" id="jyQ-Wo-Jew"/>
+                            <constraint firstItem="zQY-8m-iUb" firstAttribute="top" secondItem="KOa-NR-uh7" secondAttribute="bottom" constant="8" id="npN-nU-IiZ"/>
+                            <constraint firstItem="FyF-mF-hIz" firstAttribute="trailing" secondItem="zQY-8m-iUb" secondAttribute="trailing" id="oIA-mA-1NQ"/>
+                            <constraint firstItem="QE7-M2-gk8" firstAttribute="top" secondItem="sTR-BS-nvk" secondAttribute="bottom" constant="8" symbolic="YES" id="uiz-TZ-jUA"/>
+                            <constraint firstItem="FyF-mF-hIz" firstAttribute="top" secondItem="zQY-8m-iUb" secondAttribute="bottom" constant="8" id="wjg-bT-eb7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTemperature" destination="zQY-8m-iUb" id="41K-R8-e15"/>
+                        <outlet property="feelsLikeTemperature" destination="FyF-mF-hIz" id="gjq-Se-PBm"/>
+                        <outlet property="summary" destination="QE7-M2-gk8" id="2If-zQ-aog"/>
+                        <outlet property="weatherIcon" destination="sTR-BS-nvk" id="prf-SL-VI7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYE-HG-Ewa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="-236"/>
+            <point key="canvasLocation" x="1796" y="-236.13193403298354"/>
         </scene>
         <!--hourlyWeatherView-->
         <scene sceneID="Te2-m7-vb2">
             <objects>
                 <viewController title="hourlyWeatherView" id="qY2-wK-Vws" customClass="HourlyWeatherViewControlla" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XUE-kq-X9A"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ec-8W-AzP"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="C1L-t9-xfR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +213,10 @@
         <scene sceneID="8ZZ-aa-rO2">
             <objects>
                 <viewController title="weekWeatherView" id="cNK-Ed-wrG" customClass="WeekViewControlla" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gBP-UK-sXJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHH-a0-vkp"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UA1-l3-CaZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
