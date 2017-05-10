@@ -10,5 +10,4 @@
 
 @interface HourlyWeatherViewControlla : UIViewController
 @property(strong, nonatomic)NSArray *hourlyWeather;
--(void)reloadTable;
 @end

@@ -16,12 +16,21 @@
     if (self) {
         _feelsLike = [dictionary[kFCApparentTemperature] stringValue];
         _humidity = [dictionary[kFCHumidity] stringValue];
-        _temperature = [dictionary[kFCTemperature] stringValue];
+        _temperature = [self temperatureFormatter:[dictionary[kFCTemperature] stringValue]];
         _precipProbability = [dictionary[kFCPrecipProbability] stringValue];
         _windBearing = [dictionary[kFCWindBearing] stringValue];
         _time = [dictionary[kFCTime] stringValue];
         _icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
+        _celsius = [self fahrenheitToCelsius:[dictionary[kFCTemperature] stringValue]];
     }
     return self;
+}
+
+-(NSString *)fahrenheitToCelsius:(NSString *)temperature{
+    
+    return [[NSString alloc] initWithFormat:@"%.02f",(([temperature doubleValue] - 32) * (5 / 9))];
+}
+-(NSString *)temperatureFormatter:(NSString *)temperature{
+    return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
 @end

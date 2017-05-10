@@ -16,6 +16,7 @@
 @property(strong, nonatomic) NSString *windBearing;
 @property(strong, nonatomic) NSString *temperature;
 @property(strong, nonatomic) NSString *time;
+@property(strong, nonatomic) NSString *celsius;
 
 
 -(id)initWithHourlyDictionary:(NSDictionary *)dictionary;
