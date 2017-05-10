@@ -19,6 +19,8 @@
 @property(strong, nonatomic) NSString *temperature;
 @property(strong, nonatomic) NSString *time;
 @property(strong, nonatomic) NSString *summary;
+@property(strong, nonatomic) NSString *temperatureCelsius;
+    
 
 
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary;

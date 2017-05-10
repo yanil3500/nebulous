@@ -13,16 +13,25 @@
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.feelsLikeTemp = dictionary[kFCApparentTemperature];
-        self.icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
-        self.pressure = dictionary[kFCPressure];
-        self.precipIntensity = dictionary[kFCPrecipIntensity];
-        self.precipProbability = dictionary[kFCPrecipProbability];
-        self.temperature = dictionary[kFCTemperature];
-        self.time = dictionary[kFCTime];
-        self.summary = dictionary[kFCSummary];
+        _feelsLikeTemp = [self temperatureFormatter: dictionary[kFCApparentTemperature]];
+        _icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
+        _pressure = dictionary[kFCPressure];
+        _precipIntensity = dictionary[kFCPrecipIntensity];
+        _precipProbability = dictionary[kFCPrecipProbability];
+        _temperature = [self temperatureFormatter:dictionary[kFCTemperature]];
+        _time = dictionary[kFCTime];
+        _summary = dictionary[kFCSummary];
+        _temperatureCelsius = [self fahrenheitToCelsius: dictionary[kFCTemperature]];
     }
     return self;
 }
 
+-(NSString *)fahrenheitToCelsius:(NSString *)temperature{
+    
+    return [[NSString alloc] initWithFormat:@"%.02f",(([temperature doubleValue] - 32) * (5 / 9))];
+}
+-(NSString *)temperatureFormatter:(NSString *)temperature{
+    return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
+}
+    
 @end

@@ -47,7 +47,7 @@
     HourlyForecast *hour = self.hourlyWeather[indexPath.row];
     [[cell temperature ]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
     [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
-    [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"%@%%",[self precipitationDouble:[hour precipProbability]]]];
+    [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
     
     [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
     return cell;

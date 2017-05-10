@@ -26,6 +26,7 @@
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
 		CD1363461EC0E5E300AE71A2 /* NebulousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363451EC0E5E300AE71A2 /* NebulousTests.m */; };
+		CD5B19061EC377A8009B2B7F /* CurrentWeatherViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */; };
 		CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D41EC0EAFB008A71BC /* Forecastr.m */; };
 		CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */; };
 		CDE570DB1EC0EAFB008A71BC /* ForecastrAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */; };
@@ -81,6 +82,8 @@
 		CD1363411EC0E5E300AE71A2 /* NebulousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1363451EC0E5E300AE71A2 /* NebulousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulousTests.m; sourceTree = "<group>"; };
 		CD1363471EC0E5E300AE71A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherViewControlla.h; sourceTree = "<group>"; };
+		CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherViewControlla.m; sourceTree = "<group>"; };
 		CDE570D31EC0EAFB008A71BC /* Forecastr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecastr.h; sourceTree = "<group>"; };
 		CDE570D41EC0EAFB008A71BC /* Forecastr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecastr.m; sourceTree = "<group>"; };
 		CDE570D51EC0EAFB008A71BC /* Forecastr+CLLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forecastr+CLLocation.h"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
 				CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */,
+				CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */,
+				CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */,
 				CD1363311EC0E5E300AE71A2 /* HomeViewControlla.h */,
 				CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */,
 				CD12126C1EC2A15500D3FE36 /* WeekViewControlla.h */,
@@ -406,6 +411,7 @@
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
+				CD5B19061EC377A8009B2B7F /* CurrentWeatherViewControlla.m in Sources */,
 				CD12124B1EC12DDA00D3FE36 /* CurrentForecast.m in Sources */,
 				CD1212451EC0F7D200D3FE36 /* LocationHelper.m in Sources */,
 				CD1212481EC107E200D3FE36 /* Location.m in Sources */,

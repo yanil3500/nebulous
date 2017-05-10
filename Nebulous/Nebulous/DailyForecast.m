@@ -13,16 +13,18 @@
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.temperatureMax = [self temperatureFormatter:dictionary[kFCApparentTemperatureMax]];
-        self.temperatureMin = [self temperatureFormatter:dictionary[kFCApparentTemperatureMin]];
-        self.icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
-        self.pressure = dictionary[kFCPressure];
-        self.dewPoint = dictionary[kFCDewPoint];
-        self.visibility = dictionary[kFCVisibility];
-        self.windBearing = dictionary[kFCWindBearing];
-        self.humidity = dictionary[kFCHumidity];
-        self.summary = dictionary[kFCSummary];
-        self.time = dictionary[kFCTime];
+        _temperatureMax = [self temperatureFormatter:dictionary[kFCApparentTemperatureMax]];
+        _temperatureMin = [self temperatureFormatter:dictionary[kFCApparentTemperatureMin]];
+        _icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
+        _pressure = dictionary[kFCPressure];
+        _dewPoint = dictionary[kFCDewPoint];
+        _visibility = dictionary[kFCVisibility];
+        _windBearing = dictionary[kFCWindBearing];
+        _humidity = dictionary[kFCHumidity];
+        _summary = dictionary[kFCSummary];
+        _time = dictionary[kFCTime];
+        _temperatureCelsiusMax = [self fahrenheitToCelsius:dictionary[kFCApparentTemperatureMax]];
+        _temperatureCelsiusMin = [self fahrenheitToCelsius:dictionary[kFCApparentTemperatureMin]];
         
     }
     return self;
