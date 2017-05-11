@@ -15,6 +15,7 @@
 #import "HourlyWeatherViewControlla.h"
 #import "WeekViewControlla.h"
 #import "CurrentWeatherViewControlla.h"
+#import "MyLocationsTableViewControlla.h"
 
 @interface HomeViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
@@ -25,6 +26,7 @@
 @property(strong, nonatomic)HourlyWeatherViewControlla *hourlyViewControlla;
 @property(strong, nonatomic)WeekViewControlla *weekViewControlla;
 @property(strong, nonatomic)CurrentWeatherViewControlla *currentWeatherViewControlla;
+@property(strong, nonatomic)MyLocationsTableViewControlla *myLocationTableViewControlla;
 @end
 
 @implementation HomeViewControlla
@@ -99,6 +101,16 @@
     for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
         NSLog(@"Daily Summary: %@\nWeather Icon: %@",dailyforecast.summary, dailyforecast.icon
               );
+    }
+}
+
+#pragma - prepareForSegue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [super prepareForSegue:segue sender:sender];
+    if ([[segue identifier] isEqualToString:@"MyLocationsTableViewControlla"]){
+        MyLocationsTableViewControlla *destinationController = (MyLocationsTableViewControlla *)segue.destinationViewController;
+        [destinationController setCurrentLocation:self.currentLocation];
+        
     }
 }
 
