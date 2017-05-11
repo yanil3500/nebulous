@@ -13,5 +13,6 @@
 
 @property(strong, nonatomic)Location *currentLocation;
 @property(strong, nonatomic)NSArray *locationTableHeaders;
+@property(strong, nonatomic)NSMutableArray *savedLocations;
 
 @end

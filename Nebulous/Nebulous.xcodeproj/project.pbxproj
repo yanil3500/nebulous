@@ -139,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE570DF1EC0EE89008A71BC /* model */,
-				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
 				CDE570DE1EC0EE7F008A71BC /* controlla */,
 				CDE570DC1EC0EB9B008A71BC /* view */,
@@ -203,6 +202,7 @@
 				CD24EE0C1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.h */,
 				CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */,
 				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
+				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */,
 				CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */,
 				CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */,

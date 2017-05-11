@@ -14,7 +14,7 @@
 
 @interface Location : NSObject
 
-@property(readwrite)CLLocation *location;
+@property(strong, nonatomic)CLLocation *location;
 
 @property(strong, nonatomic)NSString *locationName;
 

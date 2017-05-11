@@ -60,7 +60,6 @@
     self.currentLocation = [[Location alloc]init];
     [[LocationHelper shared] setDelegate:self];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
-    self.currentLocation.weatherForecast.delegate = self;
     self.currentWeatherViewControlla = self.childViewControllers[0];
     self.hourlyViewControlla = self.childViewControllers[1];
     self.weekViewControlla = self.childViewControllers[2];
@@ -70,13 +69,15 @@
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
     [self.currentLocation setLocation:location];
-    [self.currentLocation.weatherForecast getTheWeatherforLocation:location];
+    self.currentLocation.weatherForecast.delegate = self;
 }
+
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
     NSLog(@"Location: %@",self.currentLocation.locationName);
     [self.navigationItem setTitle:self.currentLocation.locationName];
 }
+
 
 #pragma - WeatherForecastDelegate method
 -(void)currentWeatherForLocation:(id)weather{

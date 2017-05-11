@@ -93,8 +93,11 @@
             location = [placemark location];
             NSLog(@"Location for %@: Lat: %f Lon: %f",address,location.coordinate.latitude, location.coordinate.longitude);
             [self.delegate didGetLocation:location];
-            
+            if (placemark.locality == nil || placemark.administrativeArea == nil) {
+                locationName = [[NSString alloc] initWithFormat:@"%@",placemark.name];
+            } else {
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
+            }
             [self.delegate didFindLocationName:locationName];
         }
     }];

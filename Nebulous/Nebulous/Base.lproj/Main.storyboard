@@ -75,7 +75,8 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="W7e-a4-c2C"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="9yT-3L-2ES">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XEh-NT-jBE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Settings_500" id="XEh-NT-jBE">
+                            <inset key="imageInsets" minX="108" minY="64" maxX="12" maxY="57"/>
                             <connections>
                                 <segue destination="Y7C-OL-7A6" kind="show" identifier="MyLocationsTableViewControlla" id="u2o-Wm-HNe"/>
                             </connections>
@@ -135,7 +136,9 @@
                             <outlet property="delegate" destination="Y7C-OL-7A6" id="cR9-HF-cWv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Locations" id="tNe-4z-Db7"/>
+                    <navigationItem key="navigationItem" title="My Locations" id="tNe-4z-Db7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PF9-FI-Oei"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-sa-4lW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,4 +294,7 @@
             <point key="canvasLocation" x="1172" y="840.62968515742136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings_500" width="166" height="166"/>
+    </resources>
 </document>

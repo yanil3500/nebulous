@@ -7,12 +7,16 @@
 //
 
 #import "MyLocationsTableViewControlla.h"
+#import "LocationHelper.h"
 
 @interface MyLocationsTableViewControlla ()
 
 @end
 
 @implementation MyLocationsTableViewControlla
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +27,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 -(void)setCurrentLocation:(Location *)currentLocation{
     _currentLocation = currentLocation;
@@ -45,8 +50,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    [[cell textLabel] setText:self.currentLocation.locationName];
+    switch (indexPath.section) {
+        case 0:
+            [[cell textLabel] setText:self.currentLocation.locationName];
+            break;
+        case 1:
+            [[cell textLabel] setText:@"Money"];
+        default:
+            break;
+    }
     return cell;
 }
 

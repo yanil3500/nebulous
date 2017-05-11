@@ -54,27 +54,24 @@
     switch (indexPath.section) {
         case 0:
             hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
-            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
-            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
-            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
-            
-            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            cell.temperature.text = [[NSString alloc] initWithFormat:@"%@˚F",hour.temperature];
+            cell.time.text = [self unixTimeStampToNSDate:hour.time];
+            cell.precipitation.text = [[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble: hour.precipProbability]];
+            cell.weatherIcon.image = [UIImage imageNamed: hour.icon];
             break;
         case 1:
             hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
-            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
-            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
-            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
-            
-            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            cell.temperature.text = [[NSString alloc] initWithFormat:@"%@˚F",hour.temperature];
+            cell.time.text = [self unixTimeStampToNSDate:hour.time];
+            cell.precipitation.text = [[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble: hour.precipProbability]];
+            cell.weatherIcon.image = [UIImage imageNamed: hour.icon];
             break;
         case 2:
             hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
-            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
-            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
-            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
-            
-            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            cell.temperature.text = [[NSString alloc] initWithFormat:@"%@˚F",hour.temperature];
+            cell.time.text = [self unixTimeStampToNSDate:hour.time];
+            cell.precipitation.text = [[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble: hour.precipProbability]];
+            cell.weatherIcon.image = [UIImage imageNamed: hour.icon];
             break;
         default:
             break;
