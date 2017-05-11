@@ -92,8 +92,7 @@
         } else {
             [hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] addObject:hourlyWeather];
         }
-    }
-    
+    }    
     [self.hourlyViewControlla setSectionTitles:hourKeys];
     [self.hourlyViewControlla setHourlyWeather: hourDictionary];
     [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];

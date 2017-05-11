@@ -13,7 +13,6 @@
 
 @interface HourlyWeatherViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *hourlyTableView;
-@property NSInteger sectionNumber;
 @end
 
 @implementation HourlyWeatherViewControlla
@@ -29,13 +28,11 @@
     [_hourlyTableView reloadData];
 }
 -(void)setSectionTitles:(NSArray *)sectionTitles{
-    _sectionTitles = [[sectionTitles reverseObjectEnumerator] allObjects];
+    _sectionTitles = sectionTitles;
 }
 
 #pragma - UITableViewDataSource methods
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    self.sectionNumber = section;
-    NSLog(@"Current Section: %li", (long)self.sectionNumber);
     return self.sectionTitles[section];
 }
 
@@ -53,12 +50,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HourlyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HourlyViewCell" forIndexPath:indexPath];
-    HourlyForecast *hour = self.hourlyWeather[self.sectionTitles[self.sectionNumber]][indexPath.row];
-    [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
-    [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
-    [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
-    
-    [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+    HourlyForecast *hour;
+    switch (indexPath.section) {
+        case 0:
+            hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
+            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
+            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
+            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
+            
+            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            break;
+        case 1:
+            hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
+            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
+            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
+            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
+            
+            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            break;
+        case 2:
+            hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
+            [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
+            [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
+            [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
+            
+            [[cell weatherIcon] setImage:[UIImage imageNamed:[hour icon]]];
+            break;
+        default:
+            break;
+    }
     return cell;
 }
 
