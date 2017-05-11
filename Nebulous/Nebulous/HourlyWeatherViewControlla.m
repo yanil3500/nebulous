@@ -13,7 +13,7 @@
 
 @interface HourlyWeatherViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *hourlyTableView;
-
+@property NSInteger sectionNumber;
 @end
 
 @implementation HourlyWeatherViewControlla
@@ -24,28 +24,37 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)setHourlyWeather:(NSArray *)hourlyWeather {
+- (void)setHourlyWeather:(NSDictionary *)hourlyWeather {
     _hourlyWeather = hourlyWeather;
-    
     [_hourlyTableView reloadData];
-
 }
+-(void)setSectionTitles:(NSArray *)sectionTitles{
+    _sectionTitles = [[sectionTitles reverseObjectEnumerator] allObjects];
+}
+
 #pragma - UITableViewDataSource methods
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *date = [self unixTimeStampToDate:[[self.hourlyWeather objectAtIndex:section] time]];
-    return date
-    ;
+    self.sectionNumber = section;
+    NSLog(@"Current Section: %li", (long)self.sectionNumber);
+    return self.sectionTitles[section];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.sectionTitles.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hourlyWeather.count;
+    NSString *sectionString = self.sectionTitles[section];
+    NSArray *array = self.hourlyWeather[sectionString];
+    return array.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HourlyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HourlyViewCell" forIndexPath:indexPath];
-    HourlyForecast *hour = self.hourlyWeather[indexPath.row];
-    [[cell temperature ]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
+    HourlyForecast *hour = self.hourlyWeather[self.sectionTitles[self.sectionNumber]][indexPath.row];
+    [[cell temperature]setText:[[NSString alloc] initWithFormat:@"%@˚F",[hour temperature]]];
     [[cell time ]setText:[self unixTimeStampToNSDate:[hour time]]];
     [[cell precipitation]setText:[[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble:[hour precipProbability]]]];
     
@@ -63,14 +72,16 @@
     
 }
 
--(NSString *)unixTimeStampToDate:(NSString *)timeStamp{
+-(NSDate *)unixTimeStampToDate:(NSString *)timeStamp{
     NSTimeInterval interval = [timeStamp doubleValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+    return date;
+}
+-(NSString *)formatDate:(NSDate *)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
     return [formatter stringFromDate:date];
 }
-
 
 -(NSString *)unixTimeStampToNSDate:(NSString *)timeStamp{
     NSTimeInterval _interval=[timeStamp doubleValue];
@@ -80,6 +91,6 @@
     return [_formatter stringFromDate:date];
 }
 -(NSString *)precipitationDouble:(NSString *)precipitation{
-    return (NSString *)[[NSNumber alloc] initWithDouble:([precipitation doubleValue] * 100)];
+    return (NSString *)[[NSNumber alloc]initWithDouble:ceil(([precipitation doubleValue] * 100))];
 }
 @end

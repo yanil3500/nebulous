@@ -13,10 +13,21 @@
 @end
 
 @implementation CurrentWeatherViewControlla
-
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self currentTemperature] setText:[[self currentWeather] temperature]];
+    NSLog(@"Inside of CurrentWeatherViewControlla");
+    
+
+}
+    
+- (void)setCurrentWeather:(CurrentForecast *)currentWeather {
+    _currentWeather = currentWeather;
+    [self setUpCurrentWeatherViewControlla];
+}
+    
+-(void)setUpCurrentWeatherViewControlla{
+    [[self currentTemperature] setText:[[NSString alloc] initWithFormat:@"%@˚F",[[self currentWeather] temperature]]];
     [[self feelsLikeTemperature] setText:[[NSString alloc] initWithFormat:@"Feels Like %@˚F",[[self currentWeather] feelsLikeTemp]]];
     [[self summary] setText:[[self currentWeather]summary]];
     [[self weatherIcon] setImage:[UIImage imageNamed:[[self currentWeather] icon]]];
