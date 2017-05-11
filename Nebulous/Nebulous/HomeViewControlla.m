@@ -10,6 +10,7 @@
 #import "LocationHelper.h"//;
 #import "Location.h"
 #import "DailyForecast.h"
+#import "HourlyForecast.h"
 #import "Forecastr+CLLocation.h"
 #import "HourlyWeatherViewControlla.h"
 #import "WeekViewControlla.h"
@@ -31,7 +32,6 @@
 - (IBAction)segmentedControl:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
         [UIView animateWithDuration:0.18 animations:^{
-            [self.navigationItem setTitle:self.currentLocation.locationName];
             [self.currentWeatherView setAlpha:1];
             [self.hourlyWeatherView setAlpha:0];
             [self.weekWeatherView setAlpha:0];
@@ -73,21 +73,45 @@
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
     NSLog(@"Location: %@",self.currentLocation.locationName);
+    [self.navigationItem setTitle:self.currentLocation.locationName];
 }
 
 #pragma - WeatherForecastDelegate method
 -(void)currentWeatherForLocation:(id)weather{
     WeatherForecast *forecast = (WeatherForecast *)weather;
     self.currentLocation.weatherForecast = forecast;
-    [self.hourlyViewControlla setHourlyWeather:forecast.hourlyForecasts];
+    
+    NSMutableDictionary *hourDictionary = [[NSMutableDictionary alloc]init];
+    NSMutableArray *hourKeys = [[NSMutableArray alloc]init];
+    for (HourlyForecast *hourlyWeather in forecast.hourlyForecasts) {
+        if (![[hourDictionary allKeys] containsObject:[self unixTimeStampToDate:hourlyWeather.time]]) {
+            hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] = [[NSMutableArray alloc]init];
+            [hourKeys addObject:[self unixTimeStampToDate:hourlyWeather.time]];
+        } else {
+            [hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] addObject:hourlyWeather];
+        }
+    }
+    
+    [self.hourlyViewControlla setSectionTitles:hourKeys];
+    [self.hourlyViewControlla setHourlyWeather: hourDictionary];
     [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];
     [self.currentWeatherViewControlla setCurrentWeather:forecast.currentForecast];
     for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
-        NSLog(@"Daily Summary: %@",dailyforecast.summary
+        NSLog(@"Daily Summary: %@\nWeather Icon: %@",dailyforecast.summary, dailyforecast.icon
               );
     }
 }
 
+-(NSString *)unixTimeStampToDate:(NSString *)timeStamp{
+    NSTimeInterval interval = [timeStamp doubleValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+    return [self formatDate:date];
+}
+-(NSString *)formatDate:(NSDate *)date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+    return [formatter stringFromDate:date];
+}
 
 
 

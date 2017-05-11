@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HourlyWeatherViewControlla : UIViewController
-@property(strong, nonatomic)NSArray *hourlyWeather;
+@property(strong, nonatomic)NSDictionary *hourlyWeather;
+@property(strong, nonatomic)NSArray *sectionTitles;
 @end
