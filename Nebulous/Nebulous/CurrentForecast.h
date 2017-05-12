@@ -27,5 +27,7 @@
 
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary;
 
-
+-(NSNumber *)windBearingForCompassSectors:(id)windBearing;
+-(NSString *)fahrenheitToCelsius:(NSString *)temperature;
+-(NSString *)temperatureFormatter:(NSString *)temperature;
 @end

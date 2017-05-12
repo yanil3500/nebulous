@@ -29,16 +29,28 @@
 }
 
 -(NSNumber *)windBearingForCompassSectors:(id)windBearing{
+    if (!windBearing) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidInputException" reason:@"Argument was nil." userInfo:nil];
+        @throw exception;
+    }
     int windBearingValue = [(NSNumber *)windBearing doubleValue];
     int index = (windBearingValue + 11.25)/22.5;
     return [[NSNumber alloc] initWithInt:index % 16];
 }
 
 -(NSString *)fahrenheitToCelsius:(NSString *)temperature{
+    if (!temperature) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidInputException" reason:@"Argument was nil." userInfo:nil];
+        @throw exception;
+    }
     
     return [[NSString alloc] initWithFormat:@"%.02f",(([temperature doubleValue] - 32) * (5 / 9))];
 }
 -(NSString *)temperatureFormatter:(NSString *)temperature{
+    if (!temperature) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidInputException" reason:@"Argument was nil" userInfo:nil];
+        @throw exception;
+    }
     return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
     

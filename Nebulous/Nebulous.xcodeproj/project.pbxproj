@@ -26,6 +26,8 @@
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
 		CD1363461EC0E5E300AE71A2 /* NebulousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363451EC0E5E300AE71A2 /* NebulousTests.m */; };
+		CD1E18961EC5A64D00B41598 /* testHourlyViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E18951EC5A64D00B41598 /* testHourlyViewControlla.m */; };
+		CD1E18981EC5A9F700B41598 /* testCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E18971EC5A9F700B41598 /* testCurrentForecast.m */; };
 		CD24EE0E1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */; };
 		CD24EE111EC51C5A0000C3D8 /* SearchViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24EE101EC51C5A0000C3D8 /* SearchViewControlla.m */; };
 		CD24EE131EC532750000C3D8 /* settings_small.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24EE121EC532750000C3D8 /* settings_small.png */; };
@@ -85,6 +87,8 @@
 		CD1363411EC0E5E300AE71A2 /* NebulousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1363451EC0E5E300AE71A2 /* NebulousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulousTests.m; sourceTree = "<group>"; };
 		CD1363471EC0E5E300AE71A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD1E18951EC5A64D00B41598 /* testHourlyViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testHourlyViewControlla.m; sourceTree = "<group>"; };
+		CD1E18971EC5A9F700B41598 /* testCurrentForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCurrentForecast.m; sourceTree = "<group>"; };
 		CD24EE0C1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationsTableViewControlla.h; sourceTree = "<group>"; };
 		CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationsTableViewControlla.m; sourceTree = "<group>"; };
 		CD24EE0F1EC51C5A0000C3D8 /* SearchViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewControlla.h; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 		CD1363441EC0E5E300AE71A2 /* NebulousTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E18971EC5A9F700B41598 /* testCurrentForecast.m */,
+				CD1E18951EC5A64D00B41598 /* testHourlyViewControlla.m */,
 				CD1363451EC0E5E300AE71A2 /* NebulousTests.m */,
 				CD1363471EC0E5E300AE71A2 /* Info.plist */,
 			);
@@ -442,7 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1E18961EC5A64D00B41598 /* testHourlyViewControlla.m in Sources */,
 				CD1363461EC0E5E300AE71A2 /* NebulousTests.m in Sources */,
+				CD1E18981EC5A9F700B41598 /* testCurrentForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
