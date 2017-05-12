@@ -70,7 +70,7 @@
             hour = self.hourlyWeather[self.sectionTitles[indexPath.section]][indexPath.row];
             cell.temperature.text = [[NSString alloc] initWithFormat:@"%@˚F",hour.temperature];
             cell.time.text = [self unixTimeStampToNSDate:hour.time];
-            cell.precipitation.text = [[NSString alloc] initWithFormat:@"Precip:\n %@%%",[self precipitationDouble: hour.precipProbability]];
+            cell.precipitation.text = [[NSString alloc] initWithFormat:@"Precip:\n   %@%%",[self precipitationDouble: hour.precipProbability]];
             cell.weatherIcon.image = [UIImage imageNamed: hour.icon];
             break;
         default:

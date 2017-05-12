@@ -59,7 +59,7 @@
 
 -(NSString *)unixTimeStampToDate:(NSString *)timeStamp{
     NSTimeInterval interval = [timeStamp doubleValue];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+    NSDate *date = [NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
     return [formatter stringFromDate:date];

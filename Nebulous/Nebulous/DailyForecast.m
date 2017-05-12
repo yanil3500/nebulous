@@ -25,7 +25,8 @@
         _time = dictionary[kFCTime];
         _temperatureCelsiusMax = [self fahrenheitToCelsius:dictionary[kFCApparentTemperatureMax]];
         _temperatureCelsiusMin = [self fahrenheitToCelsius:dictionary[kFCApparentTemperatureMin]];
-        
+        _sunrise = dictionary[kFCSunriseTime];
+        _sunset = dictionary[kFCSunsetTime];
     }
     return self;
 }
