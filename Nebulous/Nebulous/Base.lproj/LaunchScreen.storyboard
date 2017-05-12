@@ -20,12 +20,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="web_hi_res_512" translatesAutoresizingMaskIntoConstraints="NO" id="uhE-kZ-Owm">
+                                <rect key="frame" x="102" y="172" width="170" height="199"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="199" id="cxf-4D-jvN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nebulous" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-at-vma">
+                                <rect key="frame" x="0.0" y="379" width="375" height="73.5"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="64"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uhE-kZ-Owm" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="152" id="OdL-ad-IpR"/>
+                            <constraint firstItem="Bc3-at-vma" firstAttribute="centerX" secondItem="uhE-kZ-Owm" secondAttribute="centerX" id="Pvk-ft-dZm"/>
+                            <constraint firstItem="Bc3-at-vma" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="QJb-6H-oI3"/>
+                            <constraint firstItem="Bc3-at-vma" firstAttribute="top" secondItem="uhE-kZ-Owm" secondAttribute="bottom" constant="8" id="aKh-mR-B2F"/>
+                            <constraint firstItem="uhE-kZ-Owm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ccZ-pG-d6e"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="web_hi_res_512" width="170" height="170"/>
+    </resources>
 </document>
