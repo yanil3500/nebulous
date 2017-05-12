@@ -24,6 +24,8 @@
         _temperatureCelsius = [self fahrenheitToCelsius: dictionary[kFCTemperature]];
         _windSpeed = dictionary[kFCWindSpeed];
         _windBearing = [self windBearingForCompassSectors:dictionary[kFCWindBearing]];
+        _visibility = dictionary[kFCVisibility];
+        _dewPoint = dictionary[kFCDewPoint];
     }
     return self;
 }

@@ -22,6 +22,8 @@
 @property(strong, nonatomic) NSString *summary;
 @property(strong, nonatomic) NSString *temperatureCelsiusMax;
 @property(strong, nonatomic) NSString *temperatureCelsiusMin;
+@property(strong, nonatomic) NSString *sunrise;
+@property(strong, nonatomic) NSString *sunset;
 
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary;
 @end
