@@ -20,8 +20,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupInitialLayout];
-    [self setUpCurrentWeatherViewControlla];
 }
+
 - (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndicator startAnimating];
+    [self setupInitialLayout];
+
 }
 
 - (void)setupInitialLayout {
