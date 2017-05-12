@@ -26,6 +26,9 @@
 		CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1363371EC0E5E300AE71A2 /* Assets.xcassets */; };
 		CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */; };
 		CD1363461EC0E5E300AE71A2 /* NebulousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1363451EC0E5E300AE71A2 /* NebulousTests.m */; };
+		CD24EE0E1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */; };
+		CD24EE111EC51C5A0000C3D8 /* SearchViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD24EE101EC51C5A0000C3D8 /* SearchViewControlla.m */; };
+		CD24EE131EC532750000C3D8 /* settings_small.png in Resources */ = {isa = PBXBuildFile; fileRef = CD24EE121EC532750000C3D8 /* settings_small.png */; };
 		CD5B19061EC377A8009B2B7F /* CurrentWeatherViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */; };
 		CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D41EC0EAFB008A71BC /* Forecastr.m */; };
 		CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */; };
@@ -82,6 +85,11 @@
 		CD1363411EC0E5E300AE71A2 /* NebulousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NebulousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1363451EC0E5E300AE71A2 /* NebulousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NebulousTests.m; sourceTree = "<group>"; };
 		CD1363471EC0E5E300AE71A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD24EE0C1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationsTableViewControlla.h; sourceTree = "<group>"; };
+		CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationsTableViewControlla.m; sourceTree = "<group>"; };
+		CD24EE0F1EC51C5A0000C3D8 /* SearchViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewControlla.h; sourceTree = "<group>"; };
+		CD24EE101EC51C5A0000C3D8 /* SearchViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewControlla.m; sourceTree = "<group>"; };
+		CD24EE121EC532750000C3D8 /* settings_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_small.png; sourceTree = "<group>"; };
 		CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherViewControlla.h; sourceTree = "<group>"; };
 		CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherViewControlla.m; sourceTree = "<group>"; };
 		CDE570D31EC0EAFB008A71BC /* Forecastr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecastr.h; sourceTree = "<group>"; };
@@ -136,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE570DF1EC0EE89008A71BC /* model */,
-				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
 				CDE570DE1EC0EE7F008A71BC /* controlla */,
 				CDE570DC1EC0EB9B008A71BC /* view */,
@@ -186,6 +193,7 @@
 				CD1212691EC27A2A00D3FE36 /* HourlyViewCell.xib */,
 				CD1363341EC0E5E300AE71A2 /* Main.storyboard */,
 				CD1363371EC0E5E300AE71A2 /* Assets.xcassets */,
+				CD24EE121EC532750000C3D8 /* settings_small.png */,
 				CD1363391EC0E5E300AE71A2 /* LaunchScreen.storyboard */,
 				CD12126F1EC2A56000D3FE36 /* WeekViewCell.h */,
 				CD1212701EC2A56000D3FE36 /* WeekViewCell.m */,
@@ -197,7 +205,12 @@
 		CDE570DE1EC0EE7F008A71BC /* controlla */ = {
 			isa = PBXGroup;
 			children = (
+				CD24EE0F1EC51C5A0000C3D8 /* SearchViewControlla.h */,
+				CD24EE101EC51C5A0000C3D8 /* SearchViewControlla.m */,
+				CD24EE0C1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.h */,
+				CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */,
 				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
+				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
 				CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */,
 				CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */,
 				CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */,
@@ -334,6 +347,7 @@
 			files = (
 				CD13633B1EC0E5E300AE71A2 /* LaunchScreen.storyboard in Resources */,
 				CD1212731EC2A56000D3FE36 /* WeekViewCell.xib in Resources */,
+				CD24EE131EC532750000C3D8 /* settings_small.png in Resources */,
 				CD12126B1EC27A2A00D3FE36 /* HourlyViewCell.xib in Resources */,
 				CD1363381EC0E5E300AE71A2 /* Assets.xcassets in Resources */,
 				CD1363361EC0E5E300AE71A2 /* Main.storyboard in Resources */,
@@ -407,8 +421,10 @@
 				CD12124E1EC1336600D3FE36 /* DailyForecast.m in Sources */,
 				CDE570DA1EC0EAFB008A71BC /* Forecastr+CLLocation.m in Sources */,
 				CD1363331EC0E5E300AE71A2 /* HomeViewControlla.m in Sources */,
+				CD24EE0E1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m in Sources */,
 				CD12126A1EC27A2A00D3FE36 /* HourlyViewCell.m in Sources */,
 				CD1363301EC0E5E300AE71A2 /* AppDelegate.m in Sources */,
+				CD24EE111EC51C5A0000C3D8 /* SearchViewControlla.m in Sources */,
 				CD13632D1EC0E5E300AE71A2 /* main.m in Sources */,
 				CDE570D91EC0EAFB008A71BC /* Forecastr.m in Sources */,
 				CD5B19061EC377A8009B2B7F /* CurrentWeatherViewControlla.m in Sources */,

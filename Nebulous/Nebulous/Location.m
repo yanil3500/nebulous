@@ -7,6 +7,7 @@
 //
 
 #import "Location.h"
+#import "WeatherForecast.h"
 
 @implementation Location
 
@@ -17,6 +18,11 @@
         self.locationName = locationName;
     }
     return self;
+}
+
+-(void)setLocation:(CLLocation *)location{
+    _location = location;
+    [self.weatherForecast getTheWeatherforLocation:location];
 }
 
 @end

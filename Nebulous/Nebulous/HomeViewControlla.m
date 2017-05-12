@@ -15,6 +15,7 @@
 #import "HourlyWeatherViewControlla.h"
 #import "WeekViewControlla.h"
 #import "CurrentWeatherViewControlla.h"
+#import "MyLocationsTableViewControlla.h"
 
 @interface HomeViewControlla () <LocationHelperDelegate, WeatherForecastDelegate>
 @property(strong, nonatomic)Location *currentLocation;
@@ -25,6 +26,7 @@
 @property(strong, nonatomic)HourlyWeatherViewControlla *hourlyViewControlla;
 @property(strong, nonatomic)WeekViewControlla *weekViewControlla;
 @property(strong, nonatomic)CurrentWeatherViewControlla *currentWeatherViewControlla;
+@property(strong, nonatomic)MyLocationsTableViewControlla *myLocationTableViewControlla;
 @end
 
 @implementation HomeViewControlla
@@ -57,8 +59,8 @@
     [self.weekWeatherView setAlpha:0];
     self.currentLocation = [[Location alloc]init];
     [[LocationHelper shared] setDelegate:self];
+    [self didGetLocation:self.currentLocation.location];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
-    self.currentLocation.weatherForecast.delegate = self;
     self.currentWeatherViewControlla = self.childViewControllers[0];
     self.hourlyViewControlla = self.childViewControllers[1];
     self.weekViewControlla = self.childViewControllers[2];
@@ -67,14 +69,16 @@
 
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
+    self.currentLocation.weatherForecast.delegate = self;
     [self.currentLocation setLocation:location];
-    [self.currentLocation.weatherForecast getTheWeatherforLocation:location];
 }
+
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
     NSLog(@"Location: %@",self.currentLocation.locationName);
     [self.navigationItem setTitle:self.currentLocation.locationName];
 }
+
 
 #pragma - WeatherForecastDelegate method
 -(void)currentWeatherForLocation:(id)weather{
@@ -90,8 +94,7 @@
         } else {
             [hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] addObject:hourlyWeather];
         }
-    }
-    
+    }    
     [self.hourlyViewControlla setSectionTitles:hourKeys];
     [self.hourlyViewControlla setHourlyWeather: hourDictionary];
     [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];
@@ -99,6 +102,16 @@
     for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
         NSLog(@"Daily Summary: %@\nWeather Icon: %@",dailyforecast.summary, dailyforecast.icon
               );
+    }
+}
+
+#pragma - prepareForSegue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [super prepareForSegue:segue sender:sender];
+    if ([[segue identifier] isEqualToString:@"MyLocationsTableViewControlla"]){
+        MyLocationsTableViewControlla *destinationController = (MyLocationsTableViewControlla *)segue.destinationViewController;
+        [destinationController setCurrentLocation:self.currentLocation];
+        
     }
 }
 

@@ -8,7 +8,6 @@
 
 #import "WeatherForecast.h"
 #import "DailyForecast.h"
-#import "WeatherForecast.h"
 #import "HourlyForecast.h"
 #import "Forecastr.h"
 
@@ -35,10 +34,10 @@
 }
 
 -(void)getTheWeatherforLocation:(CLLocation *)location{
-    __block WeatherForecast *weather;
     NSArray *exclusions = @[kFCAlerts, kFCFlags, kFCMinutelyForecast, kFCOzone];
     [[Forecastr sharedManager]getForecastForLatitude:location.coordinate.latitude longitude:location.coordinate.longitude time:nil exclusions:exclusions success:^(id JSON) {
-        weather = [[WeatherForecast alloc] initWithWeatherDictionary:JSON];
+        WeatherForecast *weather = [[WeatherForecast alloc] initWithWeatherDictionary:JSON];
+        NSLog(@"Current temp: %@", weather.currentForecast.temperature);
         [self.delegate currentWeatherForLocation:weather];
     } failure:^(NSError *error, id response) {
         NSLog(@"Error while retrieving weather data: %@",[[Forecastr sharedManager] messageForError:error withResponse:response]);
