@@ -23,4 +23,5 @@
 @property (strong, nonatomic) NSTimeZone *timeZone;
 @property(strong, nonatomic) NSString *locationName;
 -(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone;
+-(NSString *)temperatureFormatter:(NSString *)temperature;
 @end

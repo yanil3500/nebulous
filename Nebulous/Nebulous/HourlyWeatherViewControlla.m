@@ -95,12 +95,20 @@
     return date;
 }
 -(NSString *)formatDate:(NSDate *)date{
+    if (!date) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidException" reason:@"Argument passed was nil." userInfo:nil];
+        @throw exception;
+    }
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
     return [formatter stringFromDate:date];
 }
 
 -(NSString *)unixTimeStampToNSDate:(NSString *)timeStamp{
+    if (!timeStamp) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidException" reason:@"Argument passed was nil" userInfo:nil];
+        @throw exception;
+    }
     NSTimeInterval _interval=[timeStamp doubleValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
     NSDateFormatter *_formatter=[[NSDateFormatter alloc]init];

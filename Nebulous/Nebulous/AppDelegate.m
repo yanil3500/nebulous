@@ -18,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[Forecastr sharedManager] setApiKey: apiKey_h];
     [[Forecastr sharedManager] flushCache];
     

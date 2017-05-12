@@ -11,4 +11,7 @@
 @interface HourlyWeatherViewControlla : UIViewController
 @property(strong, nonatomic)NSDictionary *hourlyWeather;
 @property(strong, nonatomic)NSArray *sectionTitles;
+
+-(NSString *)formatDate:(NSDate *)date;
+-(NSString *)unixTimeStampToNSDate:(NSString *)timeStamp;
 @end
