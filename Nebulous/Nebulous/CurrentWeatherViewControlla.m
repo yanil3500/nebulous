@@ -88,7 +88,7 @@
     }
     self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone forDate:[NSDate date]]];
     self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]];
-    self.windLabel.text = [NSString stringWithFormat:@"Wind Speed: %@ m/s", self.currentWeather.windSpeed];
+    self.windLabel.text = [NSString stringWithFormat:@"Wind Speed: %.02f m/s", [self.currentWeather.windSpeed floatValue] ];
     self.dewPointLabel.text = [NSString stringWithFormat:@"Dew Point: %@˚F", self.currentWeather.dewPoint];
     self.pressureLabel.text = [NSString stringWithFormat:@"Pressure: %@ hPa", self.currentWeather.pressure];
     self.visibilityLabel.text = [NSString stringWithFormat:@"Visibility: %.02f km",[self.currentWeather.visibility floatValue]];

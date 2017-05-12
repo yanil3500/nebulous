@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="25f-bO-gH2" id="vY7-Za-Ro2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -179,7 +179,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lom-bi-8SZ" id="UIl-J2-YUk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -379,6 +379,12 @@
                                     <constraint firstAttribute="height" constant="25" id="smh-f4-7Px"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Dark Sky" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8l-ah-lNF">
+                                <rect key="frame" x="26" y="503.5" width="323" height="6.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -393,15 +399,19 @@
                             <constraint firstItem="TcP-uk-RBR" firstAttribute="leading" secondItem="ne1-yo-26I" secondAttribute="leading" constant="20" id="Aq8-LM-xE8"/>
                             <constraint firstItem="FyF-mF-hIz" firstAttribute="centerX" secondItem="zQY-8m-iUb" secondAttribute="centerX" id="Aw0-La-HuD"/>
                             <constraint firstItem="bqQ-aL-2Kx" firstAttribute="bottom" secondItem="enk-cO-YCm" secondAttribute="bottom" id="CHz-Kj-UUs"/>
+                            <constraint firstItem="HWB-am-hEx" firstAttribute="top" secondItem="a8l-ah-lNF" secondAttribute="bottom" constant="5" id="CIO-CK-nav"/>
                             <constraint firstItem="enk-cO-YCm" firstAttribute="centerX" secondItem="FyF-mF-hIz" secondAttribute="centerX" id="IRP-NG-Lak"/>
                             <constraint firstItem="HWB-am-hEx" firstAttribute="top" secondItem="TcP-uk-RBR" secondAttribute="bottom" constant="20" id="Jlk-g0-a4f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a8l-ah-lNF" secondAttribute="trailing" constant="10" id="M2b-zu-G7f"/>
                             <constraint firstItem="exf-xP-aun" firstAttribute="top" secondItem="KOa-NR-uh7" secondAttribute="bottom" constant="30" id="R5R-on-FgE"/>
                             <constraint firstItem="QE7-M2-gk8" firstAttribute="centerX" secondItem="sTR-BS-nvk" secondAttribute="centerX" id="T2w-qW-rci"/>
                             <constraint firstItem="TcP-uk-RBR" firstAttribute="centerY" secondItem="5BA-EV-XBL" secondAttribute="centerY" id="TSy-pK-2ay"/>
                             <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerY" secondItem="ne1-yo-26I" secondAttribute="centerY" id="UO6-sW-6tC"/>
+                            <constraint firstItem="a8l-ah-lNF" firstAttribute="top" secondItem="TcP-uk-RBR" secondAttribute="bottom" constant="8" id="VUy-Fz-pXh"/>
                             <constraint firstItem="sTR-BS-nvk" firstAttribute="top" secondItem="QE7-M2-gk8" secondAttribute="bottom" id="Vtp-1U-Mv7"/>
                             <constraint firstItem="at3-SH-gxM" firstAttribute="centerY" secondItem="fKd-6p-h86" secondAttribute="centerY" id="b8U-Nd-vzl"/>
                             <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="eYX-PS-5KA"/>
+                            <constraint firstItem="a8l-ah-lNF" firstAttribute="leading" secondItem="ne1-yo-26I" secondAttribute="leadingMargin" constant="10" id="evP-kk-VkO"/>
                             <constraint firstAttribute="trailing" secondItem="5BA-EV-XBL" secondAttribute="trailing" constant="20" id="gZi-Wd-EMx"/>
                             <constraint firstItem="FyF-mF-hIz" firstAttribute="top" secondItem="zQY-8m-iUb" secondAttribute="bottom" constant="8" id="heC-Qa-b4G"/>
                             <constraint firstItem="at3-SH-gxM" firstAttribute="bottom" secondItem="fKd-6p-h86" secondAttribute="bottom" constant="10" id="hwR-ct-bo4"/>
