@@ -19,6 +19,7 @@
 @implementation SearchViewControlla
 
 - (void)viewDidLoad {
+    self.navigationItem.title = @"Add Location";
     [super viewDidLoad];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"savedResults"] != nil) {
         self.savedResults = [[[NSUserDefaults standardUserDefaults] objectForKey:@"savedResults"] mutableCopy];

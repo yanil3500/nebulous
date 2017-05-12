@@ -51,18 +51,12 @@
     return [self.locationTableHeaders objectAtIndex:section];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return self.savedLocations.count;
-            break;
-        default:
-            break;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1){
+        return self.savedLocations.count;
     }
-    return 1;
-    
+    return section;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,17 +85,19 @@
     [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.savedLocations removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [NSUserDefaults.standardUserDefaults setObject:self.savedLocations forKey:@"savedResults"];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

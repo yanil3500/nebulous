@@ -20,12 +20,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupInitialLayout];
+    [self setUpCurrentWeatherViewControlla];
 }
 - (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         NSLog(@"longPressed:");
-        [slComposeViewController setInitialText:@"Check this weather out!#temp-life#weatha4Eva#nebulous"];
+        [slComposeViewController setInitialText:[[NSString alloc] initWithFormat:@"It is %@˚F degrees in %@. With %@ skies.\n#weatha4Eva#nebulous",self.currentWeather.temperature,self.locationName,self.currentWeather.summary]];
         [slComposeViewController addImage:[UIImage imageNamed:[[self currentWeather] icon]]];
         [self presentViewController:slComposeViewController animated:YES completion:nil];
         
@@ -57,7 +58,6 @@
 }
     
 -(void)setUpCurrentWeatherViewControlla{
-
     self.currentTemperature.text = [[NSString alloc] initWithFormat:@"%@˚F",[[self currentWeather] temperature]];
     self.feelsLikeTemperature.text = [[NSString alloc] initWithFormat:@"Feels Like %@˚F",[[self currentWeather] feelsLikeTemp]];
     self.summary.text = self.currentWeather.summary;

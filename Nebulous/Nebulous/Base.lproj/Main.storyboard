@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="1558" y="-770"/>
         </scene>
-        <!--SearchViewControlla-->
+        <!--Search View Controlla-->
         <scene sceneID="Qey-1i-ABx">
             <objects>
-                <viewController title="SearchViewControlla" id="k2H-YP-1lE" customClass="SearchViewControlla" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="k2H-YP-1lE" customClass="SearchViewControlla" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifw-bl-QPY"/>
                         <viewControllerLayoutGuide type="bottom" id="IWm-z4-hZC"/>

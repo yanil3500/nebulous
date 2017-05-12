@@ -78,6 +78,7 @@
 -(void)didFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
     NSLog(@"Location: %@",self.currentLocation.locationName);
+    [self.currentWeatherViewControlla setLocationName:locationName];
     [self.navigationItem setTitle:self.currentLocation.locationName];
 }
 

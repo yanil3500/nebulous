@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *localTimeLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSTimeZone *timeZone;
+@property(strong, nonatomic) NSString *locationName;
 @end
