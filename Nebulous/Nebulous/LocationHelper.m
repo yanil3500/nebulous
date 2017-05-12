@@ -8,7 +8,7 @@
 
 #import "LocationHelper.h"
 #import "Forecastr.h"
-
+#import "WeatherForecast.h"
 @interface LocationHelper()
 @property (strong, nonatomic) CLLocationManager *locationManager;
 ;
@@ -29,7 +29,6 @@
     self = [super init];
     if (self) {
         [self requestPermissions];
-        
         self.location = [[CLLocation alloc] init];
     }
     
