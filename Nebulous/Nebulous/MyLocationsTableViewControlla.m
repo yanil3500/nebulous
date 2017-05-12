@@ -16,11 +16,17 @@
 @implementation MyLocationsTableViewControlla
 
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"savedResults"] != nil){
+        self.savedLocations = [[NSMutableArray alloc] initWithArray:[[[NSUserDefaults standardUserDefaults] objectForKey:@"savedResults"] mutableCopy]];
+    }
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.locationTableHeaders = @[@"Current Location",@"Saved Locations"];
+        self.locationTableHeaders = @[@"Current Location",@"Saved Locations"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -45,7 +51,18 @@
     return [self.locationTableHeaders objectAtIndex:section];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return self.savedLocations.count;
+            break;
+        default:
+            break;
+    }
     return 1;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,20 +72,24 @@
             [[cell textLabel] setText:self.currentLocation.locationName];
             break;
         case 1:
-            [[cell textLabel] setText:@"Money"];
+            [[cell textLabel] setText:self.savedLocations[indexPath.row]];
         default:
             break;
     }
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+//     Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"selected locaiton : %@", self.savedLocations[indexPath.row]);
+    [[LocationHelper shared] findLatitudeAndLongitudeForAddress:self.savedLocations[indexPath.row]];
+    [[self navigationController] popToRootViewControllerAnimated:YES];
+}
 
 /*
 // Override to support editing the table view.

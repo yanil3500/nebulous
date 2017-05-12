@@ -63,7 +63,6 @@
             //A CLPlacemark object stores placemark data for a given latitude and longitude. Placemark data includes information such as the country, state, city, and street address associated with the specified coordinate.
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             
-            
             locationName = [placemark locality];
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             
@@ -74,6 +73,7 @@
             
         }
         [self.delegate didFindLocationName:locationName];
+        [self.fetchDelegate didFindLocationName:locationName];
     }];
     
 }
@@ -81,7 +81,6 @@
 //gets the latitude and longitude of a location given an address
 -(void)findLatitudeAndLongitudeForAddress:(NSString *)address{
     __block NSString *locationName;
-    __block CLLocation *location;
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder  geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
@@ -89,16 +88,16 @@
         } else if (placemarks && placemarks.count > 0){
             //CLPlacemarker will contain lat. and lon. data as well geographic information such as the country, state, city, etc.
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-            
-            location = [placemark location];
-            NSLog(@"Location for %@: Lat: %f Lon: %f",address,location.coordinate.latitude, location.coordinate.longitude);
-            [self.delegate didGetLocation:location];
+            NSLog(@"placemark: %@",placemark);
+            [self.delegate didGetLocation:placemark.location];
+            [self.fetchDelegate didGetLocation:placemark.location];
             if (placemark.locality == nil || placemark.administrativeArea == nil) {
                 locationName = [[NSString alloc] initWithFormat:@"%@",placemark.name];
             } else {
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             }
             [self.delegate didFindLocationName:locationName];
+            [self.fetchDelegate didFindLocationName:locationName];
         }
     }];
     
@@ -134,6 +133,7 @@
     [self stopUpdating];
     
     [self.delegate didGetLocation:self.location];
+    [self.fetchDelegate didGetLocation:self.location];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

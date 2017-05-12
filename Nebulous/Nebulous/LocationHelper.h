@@ -19,6 +19,7 @@
 @interface LocationHelper : NSObject <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *location;
 @property(nonatomic, weak) id <LocationHelperDelegate>delegate;
+@property(nonatomic, weak) id <LocationHelperDelegate>fetchDelegate;
 
 +(instancetype)shared;
 -(void)findNameForLocation:(CLLocation *)location;

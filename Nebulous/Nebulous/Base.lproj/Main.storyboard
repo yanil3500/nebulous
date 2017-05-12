@@ -75,8 +75,8 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="W7e-a4-c2C"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="9yT-3L-2ES">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Settings_500" id="XEh-NT-jBE">
-                            <inset key="imageInsets" minX="108" minY="64" maxX="12" maxY="57"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="XEh-NT-jBE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Y7C-OL-7A6" kind="show" identifier="MyLocationsTableViewControlla" id="u2o-Wm-HNe"/>
                             </connections>
@@ -137,12 +137,71 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Locations" id="tNe-4z-Db7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PF9-FI-Oei"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PF9-FI-Oei">
+                            <connections>
+                                <segue destination="k2H-YP-1lE" kind="show" identifier="SearchViewControlla" id="ILC-eu-aEW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-sa-4lW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1558" y="-770"/>
+        </scene>
+        <!--SearchViewControlla-->
+        <scene sceneID="Qey-1i-ABx">
+            <objects>
+                <viewController title="SearchViewControlla" id="k2H-YP-1lE" customClass="SearchViewControlla" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ifw-bl-QPY"/>
+                        <viewControllerLayoutGuide type="bottom" id="IWm-z4-hZC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QC0-zs-eI2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Ex: Toronto" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X93-ar-5jJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y84-9H-1Qu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="515"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Lom-bi-8SZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lom-bi-8SZ" id="UIl-J2-YUk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y84-9H-1Qu" firstAttribute="leading" secondItem="QC0-zs-eI2" secondAttribute="leading" id="7Zh-ca-QKk"/>
+                            <constraint firstAttribute="trailing" secondItem="y84-9H-1Qu" secondAttribute="trailing" id="Avu-RQ-GQW"/>
+                            <constraint firstItem="IWm-z4-hZC" firstAttribute="top" secondItem="y84-9H-1Qu" secondAttribute="bottom" id="EMp-CL-jh8"/>
+                            <constraint firstItem="y84-9H-1Qu" firstAttribute="top" secondItem="X93-ar-5jJ" secondAttribute="bottom" id="EzC-gf-nH4"/>
+                            <constraint firstItem="X93-ar-5jJ" firstAttribute="trailing" secondItem="y84-9H-1Qu" secondAttribute="trailing" id="S8r-gV-C9n"/>
+                            <constraint firstItem="X93-ar-5jJ" firstAttribute="leading" secondItem="y84-9H-1Qu" secondAttribute="leading" id="Ve2-t5-FHH"/>
+                            <constraint firstItem="X93-ar-5jJ" firstAttribute="top" secondItem="ifw-bl-QPY" secondAttribute="bottom" id="prB-Lz-imd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="X93-ar-5jJ" id="2j8-aC-aRk"/>
+                        <outlet property="searchTableView" destination="y84-9H-1Qu" id="62J-kS-AnQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzs-0P-51Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2698" y="-793"/>
         </scene>
         <!--currentWeatherView-->
         <scene sceneID="tgW-3b-ZpW">
@@ -157,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQY-8m-iUb">
-                                <rect key="frame" x="10" y="8" width="150.5" height="162"/>
+                                <rect key="frame" x="10" y="8" width="151" height="162"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,13 +244,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exf-xP-aun">
-                                <rect key="frame" x="185.5" y="30" width="4" height="140"/>
+                                <rect key="frame" x="186" y="30" width="4" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4" id="PfL-5p-4kq"/>
                                     <constraint firstAttribute="height" constant="140" id="w41-ad-VG5"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKd-6p-h86">
+                                <rect key="frame" x="197" y="30" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pk1-0K-UVi"/>
+                                    <constraint firstAttribute="width" constant="50" id="VfQ-3p-c8d"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-Ee-WCS">
+                                <rect key="frame" x="169.5" y="239.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -201,9 +270,13 @@
                             <constraint firstItem="zQY-8m-iUb" firstAttribute="leading" secondItem="ne1-yo-26I" secondAttribute="leading" constant="10" id="AEG-mU-JW3"/>
                             <constraint firstItem="sTR-BS-nvk" firstAttribute="top" secondItem="exf-xP-aun" secondAttribute="bottom" constant="70" id="CgC-L4-kno"/>
                             <constraint firstItem="zQY-8m-iUb" firstAttribute="top" secondItem="KOa-NR-uh7" secondAttribute="bottom" constant="8" symbolic="YES" id="FKJ-if-Mot"/>
+                            <constraint firstItem="fKd-6p-h86" firstAttribute="top" secondItem="exf-xP-aun" secondAttribute="top" id="HTZ-7x-qWC"/>
                             <constraint firstAttribute="trailing" secondItem="sTR-BS-nvk" secondAttribute="trailing" constant="16" id="Ov8-qr-Jz4"/>
+                            <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerY" secondItem="ne1-yo-26I" secondAttribute="centerY" id="UO6-sW-6tC"/>
+                            <constraint firstItem="fKd-6p-h86" firstAttribute="leading" secondItem="exf-xP-aun" secondAttribute="trailing" constant="7" id="WUa-AP-ova"/>
                             <constraint firstItem="QE7-M2-gk8" firstAttribute="width" secondItem="sTR-BS-nvk" secondAttribute="width" id="WdD-gM-vfk"/>
                             <constraint firstItem="exf-xP-aun" firstAttribute="bottom" secondItem="zQY-8m-iUb" secondAttribute="bottom" id="b2V-9f-57A"/>
+                            <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="eYX-PS-5KA"/>
                             <constraint firstItem="QE7-M2-gk8" firstAttribute="centerX" secondItem="sTR-BS-nvk" secondAttribute="centerX" id="jyQ-Wo-Jew"/>
                             <constraint firstItem="exf-xP-aun" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="mps-25-LZg"/>
                             <constraint firstItem="FyF-mF-hIz" firstAttribute="top" secondItem="zQY-8m-iUb" secondAttribute="bottom" constant="8" symbolic="YES" id="s3i-Am-dpS"/>
@@ -211,8 +284,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jf2-Ee-WCS" id="i6b-61-54K"/>
                         <outlet property="currentTemperature" destination="zQY-8m-iUb" id="41K-R8-e15"/>
                         <outlet property="feelsLikeTemperature" destination="FyF-mF-hIz" id="gjq-Se-PBm"/>
+                        <outlet property="precipitationDrop" destination="fKd-6p-h86" id="O7b-XJ-Q7G"/>
                         <outlet property="summary" destination="QE7-M2-gk8" id="2If-zQ-aog"/>
                         <outlet property="weatherIcon" destination="sTR-BS-nvk" id="prf-SL-VI7"/>
                     </connections>
@@ -294,7 +369,4 @@
             <point key="canvasLocation" x="1172" y="840.62968515742136"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Settings_500" width="166" height="166"/>
-    </resources>
 </document>
