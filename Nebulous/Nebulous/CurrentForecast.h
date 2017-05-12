@@ -23,7 +23,8 @@
 @property(strong, nonatomic) NSNumber *windBearing;
 @property(strong, nonatomic) NSString *windSpeed;
 @property(strong, nonatomic) NSString *localTime;
-
+@property(strong, nonatomic) NSString *visibility;
+@property(strong, nonatomic) NSString *dewPoint;
 
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary;
 
