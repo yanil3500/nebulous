@@ -75,7 +75,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="W7e-a4-c2C"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="9yT-3L-2ES">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="XEh-NT-jBE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="XEh-NT-jBE">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Y7C-OL-7A6" kind="show" identifier="MyLocationsTableViewControlla" id="u2o-Wm-HNe"/>
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lom-bi-8SZ" id="UIl-J2-YUk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
