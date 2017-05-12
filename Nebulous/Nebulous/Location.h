@@ -20,5 +20,7 @@
 
 @property(strong, nonatomic)WeatherForecast *weatherForecast;
 
+@property(strong, nonatomic)NSTimeZone *locationTimeZone;
+
 -(id)initWithLocation:(CLLocation *)location andLocationName:(NSString *)locationName;
 @end

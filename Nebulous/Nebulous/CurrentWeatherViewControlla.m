@@ -28,6 +28,11 @@
 - (void)setupInitialLayout {
     self.currentTemperature.text = @"";
     self.feelsLikeTemperature.text = @"";
+    self.precipitationLabel.text = @"";
+    self.precipitationPercentLabel.text = @"";
+    self.precipitationDrop.image = nil;
+    self.weatherIcon.image = nil;
+    self.localTimeLabel.text = @"";
     self.summary.text = @"";
 }
     
@@ -40,11 +45,33 @@
 }
     
 -(void)setUpCurrentWeatherViewControlla{
-    [[self currentTemperature] setText:[[NSString alloc] initWithFormat:@"%@˚F",[[self currentWeather] temperature]]];
-    [[self feelsLikeTemperature] setText:[[NSString alloc] initWithFormat:@"Feels Like %@˚F",[[self currentWeather] feelsLikeTemp]]];
-    [[self summary] setText:[[self currentWeather]summary]];
-    [[self precipitationDrop] setImage:[UIImage imageNamed:@"precipation"]];
-    [[self weatherIcon] setImage:[UIImage imageNamed:[[self currentWeather] icon]]];
+
+    self.currentTemperature.text = [[NSString alloc] initWithFormat:@"%@˚F",[[self currentWeather] temperature]];
+    self.feelsLikeTemperature.text = [[NSString alloc] initWithFormat:@"Feels Like %@˚F",[[self currentWeather] feelsLikeTemp]];
+    self.summary.text = self.currentWeather.summary;
+    self.precipitationLabel.text = @"Precipation";
+    self.precipitationDrop.image = [UIImage imageNamed:@"precipation"];
+    self.weatherIcon.image = [UIImage imageNamed:[[self currentWeather] icon]];
+    self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone]];
+    self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]
+                                           ];
+}
+
+-(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone{
+    NSTimeZone *tZone = [[NSTimeZone alloc]init];
+    if (!timeZone) {
+        tZone = [NSTimeZone defaultTimeZone];
+    } else {
+        tZone = timeZone;
+    }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setTimeZone:tZone];
+    [formatter setDateFormat:@"h:mm a"];
+    return [formatter stringFromDate:[NSDate date]];
+}
+
+-(NSString *)temperatureFormatter:(NSString *)temperature{
+    return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
 
 @end

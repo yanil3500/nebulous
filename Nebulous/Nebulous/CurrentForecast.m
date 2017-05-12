@@ -22,8 +22,16 @@
         _time = dictionary[kFCTime];
         _summary = dictionary[kFCSummary];
         _temperatureCelsius = [self fahrenheitToCelsius: dictionary[kFCTemperature]];
+        _windSpeed = dictionary[kFCWindSpeed];
+        _windBearing = [self windBearingForCompassSectors:dictionary[kFCWindBearing]];
     }
     return self;
+}
+
+-(NSNumber *)windBearingForCompassSectors:(id)windBearing{
+    int windBearingValue = [(NSNumber *)windBearing doubleValue];
+    int index = (windBearingValue + 11.25)/22.5;
+    return [[NSNumber alloc] initWithInt:index % 16];
 }
 
 -(NSString *)fahrenheitToCelsius:(NSString *)temperature{

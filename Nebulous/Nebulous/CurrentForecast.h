@@ -20,7 +20,9 @@
 @property(strong, nonatomic) NSString *time;
 @property(strong, nonatomic) NSString *summary;
 @property(strong, nonatomic) NSString *temperatureCelsius;
-    
+@property(strong, nonatomic) NSNumber *windBearing;
+@property(strong, nonatomic) NSString *windSpeed;
+@property(strong, nonatomic) NSString *localTime;
 
 
 -(id)initWithCurrentlyDictionary:(NSDictionary *)dictionary;

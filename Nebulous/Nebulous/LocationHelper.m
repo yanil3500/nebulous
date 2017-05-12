@@ -87,6 +87,8 @@
         } else if (placemarks && placemarks.count > 0){
             //CLPlacemarker will contain lat. and lon. data as well geographic information such as the country, state, city, etc.
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            NSLog(@"Time Zone: %@",placemark.timeZone);
+            [self.delegate didGetTimeZone:placemark.timeZone];
             NSLog(@"placemark: %@",placemark);
             [self.delegate didGetLocation:placemark.location];
             [self.fetchDelegate didGetLocation:placemark.location];

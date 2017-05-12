@@ -27,6 +27,7 @@
 @property(strong, nonatomic)WeekViewControlla *weekViewControlla;
 @property(strong, nonatomic)CurrentWeatherViewControlla *currentWeatherViewControlla;
 @property(strong, nonatomic)MyLocationsTableViewControlla *myLocationTableViewControlla;
+
 @end
 
 @implementation HomeViewControlla
@@ -58,6 +59,7 @@
     [self.hourlyWeatherView setAlpha:0];
     [self.weekWeatherView setAlpha:0];
     self.currentLocation = [[Location alloc]init];
+    self.currentLocation.locationTimeZone = [[NSTimeZone alloc] init];
     [[LocationHelper shared] setDelegate:self];
     [self didGetLocation:self.currentLocation.location];
     self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
@@ -79,7 +81,9 @@
     [self.navigationItem setTitle:self.currentLocation.locationName];
 }
 
-
+- (void)didGetTimeZone:(NSTimeZone *)timeZone{
+    self.currentLocation.locationTimeZone = timeZone;
+}
 #pragma - WeatherForecastDelegate method
 -(void)currentWeatherForLocation:(id)weather{
     WeatherForecast *forecast = (WeatherForecast *)weather;
@@ -98,11 +102,8 @@
     [self.hourlyViewControlla setSectionTitles:hourKeys];
     [self.hourlyViewControlla setHourlyWeather: hourDictionary];
     [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];
+    [self.currentWeatherViewControlla setTimeZone:self.currentLocation.locationTimeZone];
     [self.currentWeatherViewControlla setCurrentWeather:forecast.currentForecast];
-    for (DailyForecast *dailyforecast in self.currentLocation.weatherForecast.dailyForecasts) {
-        NSLog(@"Daily Summary: %@\nWeather Icon: %@",dailyforecast.summary, dailyforecast.icon
-              );
-    }
 }
 
 #pragma - prepareForSegue

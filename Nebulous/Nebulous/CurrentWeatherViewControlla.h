@@ -11,10 +11,14 @@
 
 @interface CurrentWeatherViewControlla : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *currentTemperature;
+@property (weak, nonatomic) IBOutlet UILabel *precipitationPercentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 @property (weak, nonatomic) IBOutlet UILabel *feelsLikeTemperature;
-    @property (weak, nonatomic) IBOutlet UILabel *summary;
+@property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *precipitationDrop;
 @property(strong, nonatomic)CurrentForecast *currentWeather;
+@property (weak, nonatomic) IBOutlet UILabel *precipitationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *localTimeLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSTimeZone *timeZone;
 @end
