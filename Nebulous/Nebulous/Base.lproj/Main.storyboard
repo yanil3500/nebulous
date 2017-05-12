@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7iY-8T-Kka">
-                                <rect key="frame" x="105" y="8" width="164" height="29"/>
+                                <rect key="frame" x="46" y="8" width="283" height="29"/>
                                 <segments>
                                     <segment title="Now"/>
                                     <segment title="Hourly"/>
@@ -62,9 +63,11 @@
                             <constraint firstAttribute="trailing" secondItem="npv-fE-Zrz" secondAttribute="trailing" id="IKW-8d-4kC"/>
                             <constraint firstItem="NtT-Jh-N7C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PHL-Nc-TBI"/>
                             <constraint firstAttribute="trailing" secondItem="NtT-Jh-N7C" secondAttribute="trailing" id="QTf-As-x5x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7iY-8T-Kka" secondAttribute="trailing" constant="30" id="QjQ-Nv-Ggm"/>
                             <constraint firstItem="7iY-8T-Kka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ryh-Em-Lst"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Nd-mr-zhS" secondAttribute="bottom" id="SlV-yh-pzB"/>
                             <constraint firstItem="NtT-Jh-N7C" firstAttribute="top" secondItem="npv-fE-Zrz" secondAttribute="top" id="ZVy-pT-A6x"/>
+                            <constraint firstItem="7iY-8T-Kka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Zns-jF-S1G"/>
                             <constraint firstItem="npv-fE-Zrz" firstAttribute="top" secondItem="7iY-8T-Kka" secondAttribute="bottom" constant="8" symbolic="YES" id="cPZ-Bb-XC5"/>
                             <constraint firstItem="7iY-8T-Kka" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="f0F-rV-pWG"/>
                             <constraint firstItem="5Nd-mr-zhS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nRY-sh-MBp"/>
@@ -126,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="25f-bO-gH2" id="vY7-Za-Ro2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
