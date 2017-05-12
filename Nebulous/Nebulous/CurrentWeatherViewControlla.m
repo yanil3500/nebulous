@@ -86,7 +86,7 @@
     if (!self.timeZone) {
         self.timeZone = [NSTimeZone defaultTimeZone];
     }
-    self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone]];
+    self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone forDate:[NSDate date]]];
     self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]];
     self.windLabel.text = [NSString stringWithFormat:@"Wind Speed: %@ m/s", self.currentWeather.windSpeed];
     self.dewPointLabel.text = [NSString stringWithFormat:@"Dew Point: %@˚F", self.currentWeather.dewPoint];
@@ -96,13 +96,13 @@
     // Grab weekViewController in order to access dailyForecast
     WeekViewControlla *weekVC = self.parentViewController.childViewControllers[2];
     DailyForecast *dailyForecast = weekVC.dailyWeather.firstObject;
-    self.sunriseLabel.text = [self unixTimeStampToDate:dailyForecast.sunrise];
-    self.sunsetLabel.text = [self unixTimeStampToDate:dailyForecast.sunset];
+    self.sunriseLabel.text = [self foreignTimeZoneDateFormatter:self.timeZone forDate: [self unixTimeStampToDate:dailyForecast.sunrise]];
+    self.sunsetLabel.text = [self foreignTimeZoneDateFormatter:self.timeZone forDate: [self unixTimeStampToDate:dailyForecast.sunset]];
     [self.activityIndicator stopAnimating];
 
 }
 
--(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone{
+-(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone forDate:(NSDate *)date{
     NSTimeZone *tZone = [[NSTimeZone alloc]init];
     if (timeZone == nil
         ) {
@@ -114,27 +114,18 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setTimeZone:tZone];
     [formatter setDateFormat:@"h:mm a"];
-    return [formatter stringFromDate:[NSDate date]];
+    return [formatter stringFromDate:date];
 }
 
 -(NSString *)temperatureFormatter:(NSString *)temperature{
     return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
 
--(NSString *)unixTimeStampToDate:(NSString *)timeStamp{
+-(NSDate *)unixTimeStampToDate:(NSString *)timeStamp{
     NSTimeInterval interval = [timeStamp doubleValue];
+    
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
-    return [self formatDate:date];
-}
-
--(NSString *)formatDate:(NSDate *)date{
-    if (!date) {
-        NSException *exception = [NSException exceptionWithName:@"InvalidException" reason:@"Argument passed was nil." userInfo:nil];
-        @throw exception;
-    }
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
-    return [formatter stringFromDate:date];
+    return date;
 }
 
 @end
