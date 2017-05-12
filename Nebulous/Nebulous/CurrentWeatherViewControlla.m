@@ -64,6 +64,9 @@
     self.precipitationLabel.text = @"Precipation";
     self.precipitationDrop.image = [UIImage imageNamed:@"precipation"];
     self.weatherIcon.image = [UIImage imageNamed:[[self currentWeather] icon]];
+    if (!self.timeZone) {
+        self.timeZone = [NSTimeZone defaultTimeZone];
+    }
     self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone]];
     self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]
                                            ];
@@ -71,8 +74,10 @@
 
 -(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone{
     NSTimeZone *tZone = [[NSTimeZone alloc]init];
-    if (!timeZone) {
-        tZone = [NSTimeZone defaultTimeZone];
+    if (timeZone == nil
+        ) {
+        NSException *exception = [NSException exceptionWithName:@"InvalidInputException" reason:@"timeZone is nil" userInfo:nil];
+        @throw exception;
     } else {
         tZone = timeZone;
     }
