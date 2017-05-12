@@ -39,7 +39,7 @@
     DailyForecast *daily = [self.dailyWeather objectAtIndex:indexPath.row];
     WeekViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeekViewCell" forIndexPath:indexPath];
     [[cell lowTemp] setText:[[NSString alloc] initWithFormat:@"Low: %@˚F",daily.temperatureMin]];
-    [[cell hiTemp] setText:[[NSString alloc] initWithFormat:@"Hi: %@˚F",daily.temperatureMax]];
+    [[cell hiTemp] setText:[[NSString alloc] initWithFormat:@"High: %@˚F",daily.temperatureMax]];
     [[cell date] setText:[self unixTimeStampToDate:[daily time]]];
     [[cell summary] setText:[daily summary]];
     [[cell weatherIcon] setImage:[UIImage imageNamed:[daily icon]]];
