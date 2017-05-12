@@ -19,7 +19,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.activityIndicator startAnimating];
     [self setupInitialLayout];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setUpCurrentWeatherViewControlla];
 }
 
 - (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
@@ -35,9 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.activityIndicator startAnimating];
-    [self setupInitialLayout];
-
 }
 
 - (void)setupInitialLayout {
@@ -54,12 +57,14 @@
 - (void)setCurrentWeather:(CurrentForecast *)currentWeather {
     _currentWeather = currentWeather;
     if (_currentWeather) {
-        [self.activityIndicator stopAnimating];
+        [self setUpCurrentWeatherViewControlla];
     }
-    [self setUpCurrentWeatherViewControlla];
 }
     
 -(void)setUpCurrentWeatherViewControlla{
+    if (self.currentWeather == nil) {
+        return;
+    }
     self.currentTemperature.text = [[NSString alloc] initWithFormat:@"%@˚F",[[self currentWeather] temperature]];
     self.feelsLikeTemperature.text = [[NSString alloc] initWithFormat:@"Feels Like %@˚F",[[self currentWeather] feelsLikeTemp]];
     self.summary.text = self.currentWeather.summary;
@@ -70,8 +75,9 @@
         self.timeZone = [NSTimeZone defaultTimeZone];
     }
     self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone]];
-    self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]
-                                           ];
+    self.precipitationPercentLabel.text = [[NSString alloc]initWithFormat:@"%@%%",[self temperatureFormatter:self.currentWeather.precipProbability]];
+    [self.activityIndicator stopAnimating];
+
 }
 
 -(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone{
