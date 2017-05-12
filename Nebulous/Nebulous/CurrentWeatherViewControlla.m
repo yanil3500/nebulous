@@ -7,8 +7,10 @@
 //
 
 #import "CurrentWeatherViewControlla.h"
-
+@import Social;
 @interface CurrentWeatherViewControlla ()
+
+
 
 
 @end
@@ -18,6 +20,16 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupInitialLayout];
+}
+- (IBAction)userLongPressed:(UILongPressGestureRecognizer *)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        NSLog(@"longPressed:");
+        [slComposeViewController setInitialText:@"Check this weather out!#temp-life#weatha4Eva#nebulous"];
+        [slComposeViewController addImage:[UIImage imageNamed:[[self currentWeather] icon]]];
+        [self presentViewController:slComposeViewController animated:YES completion:nil];
+        
+    }
 }
 
 - (void)viewDidLoad {
@@ -73,5 +85,6 @@
 -(NSString *)temperatureFormatter:(NSString *)temperature{
     return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
+
 
 @end

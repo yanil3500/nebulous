@@ -218,6 +218,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQY-8m-iUb">
                                 <rect key="frame" x="7" y="30" width="170" height="84"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -282,6 +283,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jf2-Ee-WCS" firstAttribute="top" secondItem="exf-xP-aun" secondAttribute="bottom" constant="69" id="2xB-h4-LJ9"/>
                             <constraint firstItem="zQY-8m-iUb" firstAttribute="top" secondItem="exf-xP-aun" secondAttribute="top" id="3ig-HB-WAA"/>
@@ -308,6 +310,9 @@
                             <constraint firstItem="exf-xP-aun" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="thf-Gm-HaS"/>
                             <constraint firstItem="bqQ-aL-2Kx" firstAttribute="leading" secondItem="exf-xP-aun" secondAttribute="trailing" constant="8" id="xl1-jX-qLN"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aaz-d5-mwo" appends="YES" id="Ksa-Pp-atE"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="jf2-Ee-WCS" id="i6b-61-54K"/>
@@ -322,8 +327,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYE-HG-Ewa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="aaz-d5-mwo">
+                    <connections>
+                        <action selector="userLongPressed:" destination="m3P-PO-S2F" id="5Wp-b4-BHF"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1796" y="-236.13193403298354"/>
+            <point key="canvasLocation" x="2132" y="-137"/>
         </scene>
         <!--hourlyWeatherView-->
         <scene sceneID="Te2-m7-vb2">
