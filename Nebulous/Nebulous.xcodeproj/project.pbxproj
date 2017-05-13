@@ -50,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		3965A7CD5AA5DA9F8546552E /* libPods-Nebulous.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nebulous.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B24C8661EC7075D00A1F7B7 /* apiKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
 		7425632150F1E99ACF6075A0 /* Pods-Nebulous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.release.xcconfig"; sourceTree = "<group>"; };
 		9B53457CD74C0BAC1524A09C /* Pods-Nebulous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1212431EC0F7D200D3FE36 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		CDE570D61EC0EAFB008A71BC /* Forecastr+CLLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forecastr+CLLocation.m"; sourceTree = "<group>"; };
 		CDE570D71EC0EAFB008A71BC /* ForecastrAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastrAPIClient.h; sourceTree = "<group>"; };
 		CDE570D81EC0EAFB008A71BC /* ForecastrAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastrAPIClient.m; sourceTree = "<group>"; };
-		CDE570DD1EC0ECFA008A71BC /* apiKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = apiKey.h; path = ../../apiKey.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,7 @@
 		CDE570D21EC0EACB008A71BC /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CDE570DD1EC0ECFA008A71BC /* apiKey.h */,
+				6B24C8661EC7075D00A1F7B7 /* apiKey.h */,
 				CDE570D31EC0EAFB008A71BC /* Forecastr.h */,
 				CDE570D41EC0EAFB008A71BC /* Forecastr.m */,
 				CDE570D51EC0EAFB008A71BC /* Forecastr+CLLocation.h */,
