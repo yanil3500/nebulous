@@ -10,20 +10,20 @@
 
 @interface DailyForecast : NSObject
 
-@property(strong, nonatomic) NSString *temperatureMax;
-@property(strong, nonatomic) NSString *temperatureMin;
-@property(strong, nonatomic) NSString *humidity;
-@property(strong, nonatomic) NSString *dewPoint;
-@property(strong, nonatomic) NSString *visibility;
-@property(strong, nonatomic) NSString *pressure;
-@property(strong, nonatomic) NSString *windBearing;
-@property(strong, nonatomic) NSString *icon;
-@property(strong, nonatomic) NSString *time;
-@property(strong, nonatomic) NSString *summary;
-@property(strong, nonatomic) NSString *temperatureCelsiusMax;
-@property(strong, nonatomic) NSString *temperatureCelsiusMin;
-@property(strong, nonatomic) NSString *sunrise;
-@property(strong, nonatomic) NSString *sunset;
+@property(copy, nonatomic) NSString *temperatureMax;
+@property(copy, nonatomic) NSString *temperatureMin;
+@property(copy, nonatomic) NSString *humidity;
+@property(copy, nonatomic) NSString *dewPoint;
+@property(copy, nonatomic) NSString *visibility;
+@property(copy, nonatomic) NSString *pressure;
+@property(copy, nonatomic) NSString *windBearing;
+@property(copy, nonatomic) NSString *icon;
+@property(copy, nonatomic) NSString *time;
+@property(copy, nonatomic) NSString *summary;
+@property(copy, nonatomic) NSString *temperatureCelsiusMax;
+@property(copy, nonatomic) NSString *temperatureCelsiusMin;
+@property(copy, nonatomic) NSString *sunrise;
+@property(copy, nonatomic) NSString *sunset;
 
 -(id)initWithDailyDictionary:(NSDictionary *)dictionary;
 @end
