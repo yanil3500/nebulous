@@ -28,4 +28,8 @@ To advance the track 15 seconds tap the forward button.  To back up 15 seconds t
 
 [Cathy Oun](https://github.com/cathy810218)
 
-
+### References
+The application would not have been possible if not for the following resources:
+* Forecastr - https://github.com/iwasrobbed/Forecastr
+* AFN Networking - https://github.com/AFNetworking/AFNetworking
+* Darksky API - https://darksky.net/dev/
