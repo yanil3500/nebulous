@@ -19,9 +19,9 @@ nebulous is a weather application that aims to provide weather data in a clean, 
 * As a user, I want to be presented with a clean, informative weather forecast.
 
 ### Screenshots
-Search through podcasts | Select an episode | The player
+Home Screen | Check the hourly forecast | See the week ahead
 :----------------------------:|:----------------------------: | :------:
-![Search podcast](home_screen.png) |  ![Select an episode](hourly_forecast.png)  | ![Player](weekly_summary.png)
+![Current Weather](home_screen.png) |  ![Hourly Forecast](hourly_forecast.png)  | ![Weekly Summary](weekly_summary.png)
 
 
 
