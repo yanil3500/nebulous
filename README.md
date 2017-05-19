@@ -4,6 +4,10 @@ A weather application for iOS written in Objective-C.
 ### Description
 nebulous is a weather application that aims to provide weather data in a clean, pristine, and informative manner. With nebulous. See the current weather, as well as the weather for the next 24 hours and the week ahead.
 
+### Tools
+nebulous uses Core Location as the underlying framework for getting the latitude and the longitude based on user's location as
+well as user-input. The Dark Sky API uses the latitude and the longitude to get the relevant weather information.
+
 ### Developer Stories
 * As a developer, I want to provide a smooth, intuitive user experience.
 * As a developer, I want to provide a clean, delightful, and concise UI.
