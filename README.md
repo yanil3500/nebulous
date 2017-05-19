@@ -26,7 +26,7 @@ Home Screen | Check the hourly forecast | See the week ahead
 
 
 ### Instructions
-To advance the track 15 seconds tap the forward button.  To back up 15 seconds tap the rewind button.  To get back to the list of episodes just swipe down the player screen to return.
+Select the weather from the available options. Tap on 'Folder' icon at the top right to search for a new location or to view the weather from favorited locations.
 ### Authors
 [Elyanil Castro](https://github.com/yanil3500)
 
