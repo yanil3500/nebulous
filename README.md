@@ -21,7 +21,7 @@ nebulous is a weather application that aims to provide weather data in a clean, 
 ### Screenshots
 Search through podcasts | Select an episode | The player
 :----------------------------:|:----------------------------: | :------:
-![Search podcast](home_screen.PNG) |  ![Select an episode](hourly_forecast.PNG)  | ![Player](weekly_summary.PNG)
+![Search podcast](home_screen.png) |  ![Select an episode](hourly_forecast.png)  | ![Player](weekly_summary.png)
 
 
 
