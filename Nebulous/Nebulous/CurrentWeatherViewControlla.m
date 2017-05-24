@@ -109,13 +109,7 @@
 
 -(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone forDate:(NSDate *)date{
     NSTimeZone *tZone = [[NSTimeZone alloc]init];
-    if (timeZone == nil
-        ) {
-        NSException *exception = [NSException exceptionWithName:@"InvalidInputException" reason:@"timeZone is nil" userInfo:nil];
-        @throw exception;
-    } else {
-        tZone = timeZone;
-    }
+    tZone = timeZone;
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setTimeZone:tZone];
     [formatter setDateFormat:@"h:mm a"];

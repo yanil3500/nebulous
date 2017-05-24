@@ -9,6 +9,7 @@
 #import "LocationHelper.h"
 #import "Forecastr.h"
 #import "WeatherForecast.h"
+@import UIKit;
 @interface LocationHelper()
 @property (strong, nonatomic) CLLocationManager *locationManager;
 ;
@@ -37,16 +38,28 @@
 -(void)requestPermissions {
     self.locationManager = [[CLLocationManager alloc]init];
     
-    [[self locationManager] requestAlwaysAuthorization];
+    [[self locationManager] requestWhenInUseAuthorization];
     
     [[self locationManager]setDelegate:self];
-    
-    
+
     [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyBest];
     
     [[self locationManager] setDistanceFilter: 100];
     
-    [[self locationManager] startUpdatingLocation];
+
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [[self locationManager] startUpdatingLocation];
+            break;
+        case kCLAuthorizationStatusDenied :
+            [self.delegate LocationHelperUserDidDeny];
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -119,7 +132,7 @@
     NSLog(@"Stopped updating location.");
     
     [[self locationManager] stopUpdatingLocation];
-    [[self locationManager] setDelegate:nil];
+//    [[self locationManager] setDelegate:nil];
     
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{

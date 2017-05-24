@@ -85,6 +85,23 @@
 - (void)didGetTimeZone:(NSTimeZone *)timeZone{
     self.currentLocation.locationTimeZone = timeZone;
 }
+
+- (void)LocationHelperUserDidDeny {
+    [self showAlertController];
+}
+
+- (void)showAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Application requires location." message:@"Go to 'Settings' to change the permissions." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:settingsAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 #pragma - WeatherForecastDelegate method
 -(void)currentWeatherForLocation:(id)weather{
     WeatherForecast *forecast = (WeatherForecast *)weather;

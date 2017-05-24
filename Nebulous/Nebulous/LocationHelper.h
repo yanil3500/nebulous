@@ -15,6 +15,7 @@
 @optional
 - (void)didFindLocationName:(NSString *)locationName;
 - (void)didGetTimeZone:(NSTimeZone *)timeZone;
+- (void)LocationHelperUserDidDeny;
 @end
 
 @interface LocationHelper : NSObject <CLLocationManagerDelegate>
@@ -23,6 +24,7 @@
 @property(nonatomic, weak) id <LocationHelperDelegate>fetchDelegate;
 
 +(instancetype)shared;
+-(void)requestPermissions;
 -(void)findNameForLocation:(CLLocation *)location;
 -(void)updateLocation;
 -(void)findLatitudeAndLongitudeForAddress:(NSString *)address;

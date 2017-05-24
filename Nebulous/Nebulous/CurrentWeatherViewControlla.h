@@ -22,6 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSTimeZone *timeZone;
 @property(strong, nonatomic) NSString *locationName;
--(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone;
+-(NSString *)foreignTimeZoneDateFormatter:(NSTimeZone *)timeZone forDate:(NSDate *)date;
 -(NSString *)temperatureFormatter:(NSString *)temperature;
 @end
