@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sunsetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sunriseLabel;
 @property (weak, nonatomic) IBOutlet UIView *sunriseView;
-
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -50,9 +50,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    
     self.sunriseView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.2];
 }
 
+-(void)updateTimer{
+    self.localTimeLabel.text = [[NSString alloc]initWithFormat:@"Local Time: %@",[self foreignTimeZoneDateFormatter:self.timeZone forDate:[NSDate date]]];
+}
 - (void)setupInitialLayout {
     self.currentTemperature.text = @"";
     self.feelsLikeTemperature.text = @"";
