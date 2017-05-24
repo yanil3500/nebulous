@@ -39,8 +39,21 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (![self isAlphaNumericOnly:searchText] && [searchText length] != 0) {
+        NSInteger lastIndex = [searchText length] - 1;
+        NSLog(@"before: %@", searchBar.text);
+        searchBar.text = [searchText substringToIndex:lastIndex];
+        NSLog(@"after: %@", searchBar.text);
+    }
     [[self searchResults] removeAllObjects];
     [self.searchTableView reloadData];
+}
+
+-(BOOL)isAlphaNumericOnly:(NSString *)input{
+    NSString *alphaNum = @"^[ 0-9a-zA-Z,-]+";
+    NSPredicate *regexTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", alphaNum];
+    
+    return [regexTest evaluateWithObject:input];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
