@@ -32,6 +32,9 @@ Select the weather from the available options. Tap on 'Folder' icon at the top r
 
 [Cathy Oun](https://github.com/cathy810218)
 
+### Art
+[Shelly Oun]
+
 ### References
 The application would not have been possible if not for the following resources:
 * Forecastr - https://github.com/iwasrobbed/Forecastr
