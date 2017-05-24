@@ -380,7 +380,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Dark Sky" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8l-ah-lNF">
-                                <rect key="frame" x="26" y="503.5" width="323" height="6.5"/>
+                                <rect key="frame" x="26" y="500" width="323" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -407,7 +407,6 @@
                             <constraint firstItem="QE7-M2-gk8" firstAttribute="centerX" secondItem="sTR-BS-nvk" secondAttribute="centerX" id="T2w-qW-rci"/>
                             <constraint firstItem="TcP-uk-RBR" firstAttribute="centerY" secondItem="5BA-EV-XBL" secondAttribute="centerY" id="TSy-pK-2ay"/>
                             <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerY" secondItem="ne1-yo-26I" secondAttribute="centerY" id="UO6-sW-6tC"/>
-                            <constraint firstItem="a8l-ah-lNF" firstAttribute="top" secondItem="TcP-uk-RBR" secondAttribute="bottom" constant="8" id="VUy-Fz-pXh"/>
                             <constraint firstItem="sTR-BS-nvk" firstAttribute="top" secondItem="QE7-M2-gk8" secondAttribute="bottom" id="Vtp-1U-Mv7"/>
                             <constraint firstItem="at3-SH-gxM" firstAttribute="centerY" secondItem="fKd-6p-h86" secondAttribute="centerY" id="b8U-Nd-vzl"/>
                             <constraint firstItem="jf2-Ee-WCS" firstAttribute="centerX" secondItem="ne1-yo-26I" secondAttribute="centerX" id="eYX-PS-5KA"/>
