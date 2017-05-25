@@ -9,7 +9,7 @@
 #import "HourlyWeatherViewControlla.h"
 #import "HourlyForecast.h"
 #import "HourlyViewCell.h"
-#define kRowHeight 50
+#define kRowHeight 120
 
 @interface HourlyWeatherViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *hourlyTableView;

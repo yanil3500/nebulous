@@ -50,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		3965A7CD5AA5DA9F8546552E /* libPods-Nebulous.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nebulous.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D16A4861ED7523C003066D6 /* apiKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
 		7425632150F1E99ACF6075A0 /* Pods-Nebulous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.release.xcconfig"; sourceTree = "<group>"; };
 		9B53457CD74C0BAC1524A09C /* Pods-Nebulous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nebulous.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nebulous/Pods-Nebulous.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1212431EC0F7D200D3FE36 /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 			children = (
 				CDE570DF1EC0EE89008A71BC /* model */,
 				CD13632F1EC0E5E300AE71A2 /* AppDelegate.m */,
+				3D16A4861ED7523C003066D6 /* apiKey.h */,
 				CDE570DE1EC0EE7F008A71BC /* controlla */,
 				CDE570DC1EC0EB9B008A71BC /* view */,
 				CD13633C1EC0E5E300AE71A2 /* Info.plist */,
@@ -215,8 +217,8 @@
 				CD24EE101EC51C5A0000C3D8 /* SearchViewControlla.m */,
 				CD24EE0C1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.h */,
 				CD24EE0D1EC4CBAB0000C3D8 /* MyLocationsTableViewControlla.m */,
-				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
 				CD13632E1EC0E5E300AE71A2 /* AppDelegate.h */,
+				CD1212641EC25FBA00D3FE36 /* HourlyWeatherViewControlla.h */,
 				CD1212651EC25FBA00D3FE36 /* HourlyWeatherViewControlla.m */,
 				CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */,
 				CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */,
@@ -316,7 +318,7 @@
 				TargetAttributes = {
 					CD1363271EC0E5E300AE71A2 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 6EJN6WTQBM;
+						DevelopmentTeam = 597HR9EHGW;
 						ProvisioningStyle = Automatic;
 					};
 					CD1363401EC0E5E300AE71A2 = {
@@ -581,12 +583,12 @@
 			baseConfigurationReference = 9B53457CD74C0BAC1524A09C /* Pods-Nebulous.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6EJN6WTQBM;
+				DEVELOPMENT_TEAM = 597HR9EHGW;
 				INFOPLIST_FILE = Nebulous/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elyaniliranzocastro.Nebulous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -595,12 +597,12 @@
 			baseConfigurationReference = 7425632150F1E99ACF6075A0 /* Pods-Nebulous.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6EJN6WTQBM;
+				DEVELOPMENT_TEAM = 597HR9EHGW;
 				INFOPLIST_FILE = Nebulous/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elyaniliranzocastro.Nebulous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

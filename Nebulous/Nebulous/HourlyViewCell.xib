@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,47 +18,48 @@
             <rect key="frame" x="0.0" y="0.0" width="423" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="423" height="119.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="423" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B0-ew-xmn">
-                        <rect key="frame" x="8" y="49.5" width="34" height="18"/>
+                        <rect key="frame" x="20" y="54" width="34" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-uu-8Rg">
-                        <rect key="frame" x="346" y="49.5" width="53" height="21"/>
+                        <rect key="frame" x="347" y="52.5" width="53" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyd-W0-MKj">
-                        <rect key="frame" x="88" y="48" width="88" height="21"/>
+                        <rect key="frame" x="93.5" y="54" width="88" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-qt-wAa">
-                        <rect key="frame" x="211" y="9" width="100" height="100"/>
+                        <rect key="frame" x="201.5" y="10" width="106" height="105.5"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="7o6-dU-WMl"/>
                             <constraint firstAttribute="width" secondItem="ThU-qt-wAa" secondAttribute="height" multiplier="1:1" id="ON1-ys-Bxc"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Vyd-W0-MKj" secondAttribute="bottom" constant="51" id="1zw-FV-bdN"/>
-                    <constraint firstItem="1B0-ew-xmn" firstAttribute="centerY" secondItem="Vyd-W0-MKj" secondAttribute="centerY" id="DHE-F3-qJO"/>
-                    <constraint firstItem="1B0-ew-xmn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dgm-MW-Wnz"/>
-                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="gPO-ey-XX2"/>
+                    <constraint firstItem="ThU-qt-wAa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.2" id="OLk-Mc-xxj"/>
+                    <constraint firstAttribute="bottom" secondItem="ThU-qt-wAa" secondAttribute="bottom" constant="10" id="TJ5-7N-j4p"/>
+                    <constraint firstItem="ThU-qt-wAa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bt2-Pg-2YA"/>
+                    <constraint firstItem="1B0-ew-xmn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dgm-MW-Wnz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ac8-uu-8Rg" secondAttribute="trailing" constant="15" id="en7-VY-GiK"/>
+                    <constraint firstItem="1B0-ew-xmn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ffY-FD-hIn"/>
+                    <constraint firstItem="ThU-qt-wAa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="gUD-ZF-BiX"/>
+                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.65" id="hII-Q9-kFe"/>
                     <constraint firstItem="Ac8-uu-8Rg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hxr-5R-qzJ"/>
-                    <constraint firstItem="Ac8-uu-8Rg" firstAttribute="leading" secondItem="ThU-qt-wAa" secondAttribute="trailing" constant="35" id="jym-we-vHW"/>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ohW-TF-AWp"/>
-                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="leading" secondItem="1B0-ew-xmn" secondAttribute="trailing" constant="46" id="qNs-sh-6EG"/>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="leading" secondItem="Vyd-W0-MKj" secondAttribute="trailing" constant="35" id="tC0-dG-vVd"/>
+                    <constraint firstItem="ThU-qt-wAa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="l7z-hH-iSh"/>
+                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pX0-hE-xVf"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
