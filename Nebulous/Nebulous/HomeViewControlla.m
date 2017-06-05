@@ -66,13 +66,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.hourlyWeatherView setAlpha:0];
-    [self.weekWeatherView setAlpha:0];
-    self.currentLocation = [[Location alloc]init];
+    self.hourlyWeatherView.alpha = 0.0;
+    self.weekWeatherView.alpha   = 0.0;
+    self.currentLocation = [[Location alloc] init];
     self.currentLocation.locationTimeZone = [[NSTimeZone alloc] init];
-    [[LocationHelper shared] setDelegate:self];
-    [self didGetLocation:self.currentLocation.location];
-    self.currentLocation.weatherForecast = [[WeatherForecast alloc]init];
+    [LocationHelper shared].delegate = self;
+    
+    self.currentLocation.weatherForecast = [[WeatherForecast alloc] init];
+    self.currentLocation.weatherForecast.delegate = self;
+
+    // Get child view controllers
     self.currentWeatherViewControlla = self.childViewControllers[0];
     self.hourlyViewControlla = self.childViewControllers[1];
     self.weekViewControlla = self.childViewControllers[2];
@@ -81,15 +84,14 @@
 
 #pragma - LocationHelperMethods
 -(void)didGetLocation:(CLLocation *)location{
-    self.currentLocation.weatherForecast.delegate = self;
-    [self.currentLocation setLocation:location];
+    self.currentLocation.location = location;
 }
 
 -(void)locationHelperDidFindLocationName:(NSString *)locationName{
-    [self.currentLocation setLocationName:locationName];
+    self.currentLocation.locationName = locationName;
     NSLog(@"Location: %@",self.currentLocation.locationName);
-    [self.currentWeatherViewControlla setLocationName:locationName];
-    [self.navigationItem setTitle:self.currentLocation.locationName];
+    self.currentWeatherViewControlla.locationName = locationName;
+    self.navigationItem.title = self.currentLocation.locationName;
 }
 
 - (void)locationHelperDidGetTimeZone:(NSTimeZone *)timeZone{
@@ -97,17 +99,42 @@
 }
 
 - (void)locationHelperUserDidDeny {
-    [self showAlertController];
+//    [self showAlertController];
+    [self showAlertControllerWithTitle:@"Application requires location."
+                               message:@"Go to 'Settings' to change the permissions."
+                         okActionTitle:@"Settings" okHandler:^() {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+    } cancelActionTitle:@"Cancel"];
+    
 }
 
-- (void)showAlertController {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Application requires location." message:@"Go to 'Settings' to change the permissions." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+-(void)locationHelperDidFailWithError:(NSError *)error {
+    if (error) {
+        [self showAlertControllerWithTitle:@"Can't get the weather data" message:@"Sorry! We're unable to fetch data from server. Please try again later!" okActionTitle:@"OK" okHandler:^() {
+            [self.currentWeatherViewControlla.activityIndicator stopAnimating];
+        } cancelActionTitle: nil];
+    }
+}
+
+- (void)showAlertControllerWithTitle:(NSString *)title
+                             message:(NSString *)message
+                       okActionTitle:(NSString *)okayTitle
+                           okHandler:(void (^ __nullable)())okayHandler
+                   cancelActionTitle:(nullable NSString *)cancelTitle {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okayAction = [UIAlertAction actionWithTitle:okayTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (okayHandler) {
+            okayHandler();
+        }
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:settingsAction];
-    [alertController addAction:cancelAction];
+    [alertController addAction:okayAction];
+
+    if (cancelTitle) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+    }
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -117,20 +144,22 @@
     WeatherForecast *forecast = (WeatherForecast *)weather;
     self.currentLocation.weatherForecast = forecast;
     
-    NSMutableDictionary *hourDictionary = [[NSMutableDictionary alloc]init];
-    NSMutableArray *hourKeys = [[NSMutableArray alloc]init];
+    NSMutableDictionary *hourDictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *hourKeys = [[NSMutableArray alloc] init];
     for (HourlyForecast *hourlyWeather in forecast.hourlyForecasts) {
-        if (![[hourDictionary allKeys] containsObject:[self unixTimeStampToDate:hourlyWeather.time]]) {
-            hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] = [[NSMutableArray alloc]init];
-            [hourKeys addObject:[self unixTimeStampToDate:hourlyWeather.time]];
+        NSString *hourlyWeatherTime = [self unixTimeStampToDate:hourlyWeather.time];
+        
+        if (![[hourDictionary allKeys] containsObject:hourlyWeatherTime]) {
+            hourDictionary[hourlyWeatherTime] = [[NSMutableArray alloc]init];
+            [hourKeys addObject:hourlyWeatherTime];
         } else {
-            [hourDictionary[[self unixTimeStampToDate:hourlyWeather.time]] addObject:hourlyWeather];
+            [hourDictionary[hourlyWeatherTime] addObject:hourlyWeather];
         }
-    }    
-    [self.hourlyViewControlla setSectionTitles:hourKeys];
-    [self.hourlyViewControlla setHourlyWeather: hourDictionary];
-    [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];
-
+    }
+    self.hourlyViewControlla.sectionTitles = hourKeys;
+    self.hourlyViewControlla.hourlyWeather = hourDictionary;
+    self.weekViewControlla.dailyWeather = forecast.dailyForecasts;
+    
     self.currentWeatherViewControlla.timeZone = self.currentLocation.locationTimeZone;
     self.currentWeatherViewControlla.currentWeather = forecast.currentForecast;
 }
@@ -138,10 +167,10 @@
 #pragma - prepareForSegue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     [super prepareForSegue:segue sender:sender];
-    if ([[segue identifier] isEqualToString:@"MyLocationsTableViewControlla"]){
+    
+    if ([segue.identifier isEqualToString:@"MyLocationsTableViewControlla"]){
         MyLocationsTableViewControlla *destinationController = (MyLocationsTableViewControlla *)segue.destinationViewController;
-        [destinationController setCurrentLocation:self.currentLocation];
-        
+        destinationController.currentLocation = self.currentLocation;
     }
 }
 
@@ -150,12 +179,11 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
     return [self formatDate:date];
 }
+
 -(NSString *)formatDate:(NSDate *)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
     return [formatter stringFromDate:date];
 }
-
-
 
 @end
