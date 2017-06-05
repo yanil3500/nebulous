@@ -305,12 +305,11 @@ NSString *const kFCNearestStormBearing = @"nearestStormBearing";
     if ([response isKindOfClass:[NSDictionary class]]) {
         NSString *errorMsg = [response objectForKey:@"error"];
         return (errorMsg.length) ? errorMsg : error.localizedDescription;
-    } else if ([response isKindOfClass:[AFHTTPResponseSerializer class]]) {
-//        AFHTTPResponseSerializer *operation = (AFHTTPResponseSerializer *)response;
-//        NSInteger statusCode = response.statusCode;
-//        NSString *errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:statusCode];
-//        return [errorMsg stringByAppendingFormat:@" (code %ld)", (long)statusCode];
-        return @"Something wrong with AFNetworking";
+    } else if ([response isKindOfClass:[AFHTTPRequestOperation class]]) {
+        AFHTTPRequestOperation *operation = (AFHTTPRequestOperation *)response;
+        NSInteger statusCode = operation.response.statusCode;
+        NSString *errorMsg = [NSHTTPURLResponse localizedStringForStatusCode:statusCode];
+        return [errorMsg stringByAppendingFormat:@" (code %ld)", (long)statusCode];
     } else {
         return error.localizedDescription;
     }
