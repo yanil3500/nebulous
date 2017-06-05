@@ -80,12 +80,12 @@
 }
 
 -(void)setUpTableView{
-    [[self hourlyTableView]setDataSource:self];
+    self.hourlyTableView.dataSource = self;
     UINib *hourlyViewNib = [UINib nibWithNibName:@"HourlyViewCell" bundle:[NSBundle mainBundle]];
     
-    [[self hourlyTableView] setEstimatedRowHeight:kRowHeight];
-    [[self hourlyTableView] setRowHeight:UITableViewAutomaticDimension];
-    [[self hourlyTableView] registerNib:hourlyViewNib forCellReuseIdentifier:@"HourlyViewCell"];
+    [self.hourlyTableView setEstimatedRowHeight:kRowHeight];
+    [self.hourlyTableView setRowHeight:UITableViewAutomaticDimension];
+    [self.hourlyTableView registerNib:hourlyViewNib forCellReuseIdentifier:@"HourlyViewCell"];
     
 }
 

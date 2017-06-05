@@ -99,7 +99,6 @@
 }
 
 - (void)locationHelperUserDidDeny {
-//    [self showAlertController];
     [self showAlertControllerWithTitle:@"Application requires location."
                                message:@"Go to 'Settings' to change the permissions."
                          okActionTitle:@"Settings" okHandler:^() {
