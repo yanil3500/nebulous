@@ -13,9 +13,9 @@
 
 - (void)didGetLocation:(CLLocation *)location;
 @optional
-- (void)didFindLocationName:(NSString *)locationName;
-- (void)didGetTimeZone:(NSTimeZone *)timeZone;
-- (void)LocationHelperUserDidDeny;
+- (void)locationHelperDidFindLocationName:(NSString *)locationName;
+- (void)locationHelperDidGetTimeZone:(NSTimeZone *)timeZone;
+- (void)locationHelperUserDidDeny;
 @end
 
 @interface LocationHelper : NSObject <CLLocationManagerDelegate>

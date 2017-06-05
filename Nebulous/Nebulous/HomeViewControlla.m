@@ -75,18 +75,18 @@
     [self.currentLocation setLocation:location];
 }
 
--(void)didFindLocationName:(NSString *)locationName{
+-(void)locationHelperDidFindLocationName:(NSString *)locationName{
     [self.currentLocation setLocationName:locationName];
     NSLog(@"Location: %@",self.currentLocation.locationName);
     [self.currentWeatherViewControlla setLocationName:locationName];
     [self.navigationItem setTitle:self.currentLocation.locationName];
 }
 
-- (void)didGetTimeZone:(NSTimeZone *)timeZone{
+- (void)locationHelperDidGetTimeZone:(NSTimeZone *)timeZone{
     self.currentLocation.locationTimeZone = timeZone;
 }
 
-- (void)LocationHelperUserDidDeny {
+- (void)locationHelperUserDidDeny {
     [self showAlertController];
 }
 

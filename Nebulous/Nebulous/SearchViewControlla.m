@@ -106,7 +106,7 @@
 }
 
 
--(void)didFindLocationName:(NSString *)locationName{
+-(void)locationHelperDidFindLocationName:(NSString *)locationName{
     [self.searchResults addObject:locationName];
     [self.searchTableView reloadData];
     NSLog(@"Search Results: %@",locationName);

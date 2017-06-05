@@ -55,7 +55,7 @@
             [[self locationManager] startUpdatingLocation];
             break;
         case kCLAuthorizationStatusDenied :
-            [self.delegate LocationHelperUserDidDeny];
+            [self.delegate locationHelperUserDidDeny];
             break;
         default:
             break;
@@ -84,8 +84,8 @@
             }
             
         }
-        [self.delegate didFindLocationName:locationName];
-        [self.fetchDelegate didFindLocationName:locationName];
+        [self.delegate locationHelperDidFindLocationName:locationName];
+        [self.fetchDelegate locationHelperDidFindLocationName:locationName];
     }];
     
 }
@@ -101,7 +101,7 @@
             //CLPlacemarker will contain lat. and lon. data as well geographic information such as the country, state, city, etc.
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             NSLog(@"Time Zone: %@",placemark.timeZone);
-            [self.delegate didGetTimeZone:placemark.timeZone];
+            [self.delegate locationHelperDidGetTimeZone:placemark.timeZone];
             NSLog(@"placemark: %@",placemark);
             [self.delegate didGetLocation:placemark.location];
             [self.fetchDelegate didGetLocation:placemark.location];
@@ -110,8 +110,8 @@
             } else {
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             }
-            [self.delegate didFindLocationName:locationName];
-            [self.fetchDelegate didFindLocationName:locationName];
+            [self.delegate locationHelperDidFindLocationName:locationName];
+            [self.fetchDelegate locationHelperDidFindLocationName:locationName];
         }
     }];
     
