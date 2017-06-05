@@ -33,24 +33,34 @@
 @implementation HomeViewControlla
 //Uses segmented controls to change views
 - (IBAction)segmentedControl:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        [UIView animateWithDuration:0.18 animations:^{
-            [self.currentWeatherView setAlpha:1];
-            [self.hourlyWeatherView setAlpha:0];
-            [self.weekWeatherView setAlpha:0];
-        }];
-    } else if (sender.selectedSegmentIndex == 1){
-        [UIView animateWithDuration:0.18 animations:^{
-            [self.currentWeatherView setAlpha:0];
-            [self.hourlyWeatherView setAlpha:1];
-            [self.weekWeatherView setAlpha:0];
-        }];
-    } else{
-        [UIView animateWithDuration:0.18 animations:^{
-            [self.currentWeatherView setAlpha:0];
-            [self.hourlyWeatherView setAlpha:0];
-            [self.weekWeatherView setAlpha:1];
-        }];
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+        {
+            [UIView animateWithDuration:0.18 animations:^{
+                [self.currentWeatherView setAlpha:1];
+                [self.hourlyWeatherView setAlpha:0];
+                [self.weekWeatherView setAlpha:0];
+            }];
+            break;
+        }
+        case 1:
+        {
+            [UIView animateWithDuration:0.18 animations:^{
+                [self.currentWeatherView setAlpha:0];
+                [self.hourlyWeatherView setAlpha:1];
+                [self.weekWeatherView setAlpha:0];
+            }];
+            break;
+        }
+        case 2:
+        {
+            [UIView animateWithDuration:0.18 animations:^{
+                [self.currentWeatherView setAlpha:0];
+                [self.hourlyWeatherView setAlpha:0];
+                [self.weekWeatherView setAlpha:1];
+            }];
+        }
     }
 }
 
@@ -120,8 +130,9 @@
     [self.hourlyViewControlla setSectionTitles:hourKeys];
     [self.hourlyViewControlla setHourlyWeather: hourDictionary];
     [self.weekViewControlla setDailyWeather:forecast.dailyForecasts];
-    [self.currentWeatherViewControlla setTimeZone:self.currentLocation.locationTimeZone];
-    [self.currentWeatherViewControlla setCurrentWeather:forecast.currentForecast];
+
+    self.currentWeatherViewControlla.timeZone = self.currentLocation.locationTimeZone;
+    self.currentWeatherViewControlla.currentWeather = forecast.currentForecast;
 }
 
 #pragma - prepareForSegue
