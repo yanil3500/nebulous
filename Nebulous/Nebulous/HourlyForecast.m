@@ -20,6 +20,8 @@
         _precipProbability = [dictionary[kFCPrecipProbability] stringValue];
         _windBearing = [dictionary[kFCWindBearing] stringValue];
         _time = [dictionary[kFCTime] stringValue];
+        
+//        NSLog(@"The time: %@", [self formatDate:[self unixTimeStampToDate:_time]]);
         _icon = [[Forecastr sharedManager] imageNameForWeatherIconType:dictionary[kFCIcon]];
         _celsius = [self fahrenheitToCelsius:[dictionary[kFCTemperature] stringValue]];
     }
@@ -33,4 +35,20 @@
 -(NSString *)temperatureFormatter:(NSString *)temperature{
     return [[NSString alloc] initWithFormat:@"%.0f", [temperature doubleValue]];
 }
+
+//-(NSDate *)unixTimeStampToDate:(NSString *)timeStamp{
+//    NSTimeInterval interval = [timeStamp doubleValue];
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+//    return date;
+//}
+//-(NSString *)formatDate:(NSDate *)date{
+//    if (!date) {
+//        NSException *exception = [NSException exceptionWithName:@"InvalidException" reason:@"Argument passed was nil." userInfo:nil];
+//        @throw exception;
+//    }
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"HH:mm:ss EEEE, MMM d, yyyy"];
+//    return [formatter stringFromDate:date];
+//}
+
 @end

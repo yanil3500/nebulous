@@ -147,14 +147,15 @@
     NSMutableArray *hourKeys = [[NSMutableArray alloc] init];
     for (HourlyForecast *hourlyWeather in forecast.hourlyForecasts) {
         NSString *hourlyWeatherTime = [self unixTimeStampToDate:hourlyWeather.time];
-        
+        NSLog(@"Time: %@",hourlyWeatherTime);
         if (![[hourDictionary allKeys] containsObject:hourlyWeatherTime]) {
-            hourDictionary[hourlyWeatherTime] = [[NSMutableArray alloc]init];
+            hourDictionary[hourlyWeatherTime] = [[NSMutableArray alloc] init];
             [hourKeys addObject:hourlyWeatherTime];
-        } else {
-            [hourDictionary[hourlyWeatherTime] addObject:hourlyWeather];
         }
+        [hourDictionary[hourlyWeatherTime] addObject:hourlyWeather];
+
     }
+    
     self.hourlyViewControlla.sectionTitles = hourKeys;
     self.hourlyViewControlla.hourlyWeather = hourDictionary;
     self.weekViewControlla.dailyWeather = forecast.dailyForecasts;
