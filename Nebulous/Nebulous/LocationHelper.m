@@ -38,13 +38,13 @@
 -(void)requestPermissions {
     self.locationManager = [[CLLocationManager alloc]init];
     
-    [[self locationManager] requestWhenInUseAuthorization];
+    [self.locationManager requestWhenInUseAuthorization];
     
-    [[self locationManager]setDelegate:self];
+    self.locationManager.delegate = self;
 
-    [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
-    [[self locationManager] setDistanceFilter: 100];
+    [self.locationManager setDistanceFilter: 100];
     
 
 }
@@ -52,10 +52,10 @@
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     switch (status) {
         case kCLAuthorizationStatusAuthorizedWhenInUse:
-            [[self locationManager] startUpdatingLocation];
+            [self.locationManager startUpdatingLocation];
             break;
         case kCLAuthorizationStatusDenied :
-            [self.delegate LocationHelperUserDidDeny];
+            [self.delegate locationHelperUserDidDeny];
             break;
         default:
             break;
@@ -84,8 +84,8 @@
             }
             
         }
-        [self.delegate didFindLocationName:locationName];
-        [self.fetchDelegate didFindLocationName:locationName];
+        [self.delegate locationHelperDidFindLocationName:locationName];
+        [self.fetchDelegate locationHelperDidFindLocationName:locationName];
     }];
     
 }
@@ -101,7 +101,7 @@
             //CLPlacemarker will contain lat. and lon. data as well geographic information such as the country, state, city, etc.
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             NSLog(@"Time Zone: %@",placemark.timeZone);
-            [self.delegate didGetTimeZone:placemark.timeZone];
+            [self.delegate locationHelperDidGetTimeZone:placemark.timeZone];
             NSLog(@"placemark: %@",placemark);
             [self.delegate didGetLocation:placemark.location];
             [self.fetchDelegate didGetLocation:placemark.location];
@@ -110,8 +110,8 @@
             } else {
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             }
-            [self.delegate didFindLocationName:locationName];
-            [self.fetchDelegate didFindLocationName:locationName];
+            [self.delegate locationHelperDidFindLocationName:locationName];
+            [self.fetchDelegate locationHelperDidFindLocationName:locationName];
         }
     }];
     
@@ -126,15 +126,12 @@
 }
 
 #pragma mark - CLLocationManagerDelegate methods
-
 //Stop the CLLocation from updating the location (to save battery power)
 -(void)stopUpdating{
     NSLog(@"Stopped updating location.");
-    
-    [[self locationManager] stopUpdatingLocation];
-//    [[self locationManager] setDelegate:nil];
-    
+    [self.locationManager stopUpdatingLocation];
 }
+
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     CLLocation *location = [locations lastObject];
     
@@ -153,6 +150,7 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     if (error) {
         NSLog(@"Failed to find location : %@", error.localizedDescription);
+        [self.delegate locationHelperDidFailWithError:error];
     }
 }
 

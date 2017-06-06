@@ -7,8 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,45 +19,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="423" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B0-ew-xmn">
-                        <rect key="frame" x="20" y="54" width="34" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precip." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-uu-8Rg">
-                        <rect key="frame" x="347" y="52.5" width="53" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyd-W0-MKj">
-                        <rect key="frame" x="93.5" y="54" width="88" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-qt-wAa">
-                        <rect key="frame" x="201.5" y="10" width="106" height="105.5"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ud6-Te-2Ho">
+                        <rect key="frame" x="10" y="5" width="403" height="109.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B0-ew-xmn">
+                                <rect key="frame" x="0.0" y="46" width="111.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyd-W0-MKj">
+                                <rect key="frame" x="111.5" y="46" width="101" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-qt-wAa">
+                                <rect key="frame" x="212.5" y="10" width="90" height="89.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ThU-qt-wAa" secondAttribute="height" multiplier="1:1" id="ag1-O4-Iix"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precip." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac8-uu-8Rg">
+                                <rect key="frame" x="302.5" y="44.5" width="100.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="ThU-qt-wAa" secondAttribute="height" multiplier="1:1" id="ON1-ys-Bxc"/>
+                            <constraint firstAttribute="bottom" secondItem="ThU-qt-wAa" secondAttribute="bottom" constant="10" id="1Lr-Bv-FDk"/>
+                            <constraint firstItem="ThU-qt-wAa" firstAttribute="top" secondItem="Ud6-Te-2Ho" secondAttribute="top" constant="10" id="LNR-aL-a7L"/>
                         </constraints>
-                    </imageView>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.2" id="OLk-Mc-xxj"/>
-                    <constraint firstAttribute="bottom" secondItem="ThU-qt-wAa" secondAttribute="bottom" constant="10" id="TJ5-7N-j4p"/>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bt2-Pg-2YA"/>
-                    <constraint firstItem="1B0-ew-xmn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dgm-MW-Wnz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Ac8-uu-8Rg" secondAttribute="trailing" constant="15" id="en7-VY-GiK"/>
-                    <constraint firstItem="1B0-ew-xmn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ffY-FD-hIn"/>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="gUD-ZF-BiX"/>
-                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.65" id="hII-Q9-kFe"/>
-                    <constraint firstItem="Ac8-uu-8Rg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hxr-5R-qzJ"/>
-                    <constraint firstItem="ThU-qt-wAa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="l7z-hH-iSh"/>
-                    <constraint firstItem="Vyd-W0-MKj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pX0-hE-xVf"/>
+                    <constraint firstItem="Ud6-Te-2Ho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2Lh-Gx-43i"/>
+                    <constraint firstAttribute="trailing" secondItem="Ud6-Te-2Ho" secondAttribute="trailing" constant="10" id="RFj-uM-01d"/>
+                    <constraint firstItem="Ud6-Te-2Ho" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fTV-mE-dIJ"/>
+                    <constraint firstAttribute="bottom" secondItem="Ud6-Te-2Ho" secondAttribute="bottom" constant="5" id="u8E-hR-y1x"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

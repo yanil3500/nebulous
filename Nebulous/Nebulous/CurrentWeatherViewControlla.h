@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *feelsLikeTemperature;
 @property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *precipitationDrop;
-@property(strong, nonatomic)CurrentForecast *currentWeather;
+@property (strong, nonatomic) CurrentForecast *currentWeather;
 @property (weak, nonatomic) IBOutlet UILabel *precipitationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *localTimeLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
