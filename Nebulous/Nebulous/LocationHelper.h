@@ -11,7 +11,6 @@
 
 @protocol LocationHelperDelegate <NSObject>
 
-- (void)didGetLocation:(CLLocation *)location;
 @optional
 - (void)locationHelperDidFindLocationName:(NSString *)locationName;
 - (void)locationHelperDidGetTimeZone:(NSTimeZone *)timeZone;
@@ -26,12 +25,17 @@
 @interface LocationHelper : NSObject <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *location;
 @property(nonatomic, weak) id <LocationHelperDelegate>delegate;
-@property(nonatomic, weak) id <LocationHelperDelegate>fetchDelegate;
 
+typedef void (^LocationNameCompletionHandler)(NSString * locationName);
+typedef void (^CoordinatesCompletionHandler)(CLLocation * coordinates);
+
+
+-(void)getLocationName:(NSString *)locationName withCompletion:(LocationNameCompletionHandler)completion;
 +(instancetype)shared;
 -(void)requestPermissions;
--(void)findNameForLocation:(CLLocation *)location;
 -(void)updateLocation;
--(void)findLatitudeAndLongitudeForAddress:(NSString *)address;
+
+
+
 
 @end

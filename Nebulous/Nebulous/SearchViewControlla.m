@@ -10,7 +10,7 @@
 #import "LocationHelper.h"
 @import CoreLocation;
 
-@interface SearchViewControlla () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, LocationHelperDelegate>
+@interface SearchViewControlla () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *savedResults;
@@ -30,7 +30,6 @@
     self.searchTableView.dataSource = self;
     self.searchTableView.delegate = self;
     self.searchBar.delegate = self;
-    [LocationHelper shared].fetchDelegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -58,7 +57,9 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     if (searchBar.text != nil) {
-        [[LocationHelper shared] findLatitudeAndLongitudeForAddress:searchBar.text];
+        [[LocationHelper shared] getLocationName:searchBar.text withCompletion:^(NSString *locationName) {
+            NSLog(@"The completion block inside of searchBarButtonClicked: %@",locationName);
+        }];
     }
     [self.searchBar resignFirstResponder];
 }
@@ -98,13 +99,6 @@
     [self.searchTableView reloadData];
 
 }
-
-#pragma LocationHelperDelegate methods
-
--(void)didGetLocation:(CLLocation *)location{
-    NSLog(@"Location (SearchViewControlla): %f, %f",location.coordinate.latitude,location.coordinate.longitude);
-}
-
 
 -(void)locationHelperDidFindLocationName:(NSString *)locationName{
     [self.searchResults addObject:locationName];

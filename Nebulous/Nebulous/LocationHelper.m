@@ -64,58 +64,64 @@
 
 
 //Reverses geocode and gets the name of the location based on the coordinates provided.
--(void)findNameForLocation:(CLLocation *)location{
-    __block NSString *locationName;
+-(void)findNameForLocation:(CLLocation *)location
+withLocationNameCompletion:(LocationNameCompletionHandler)handlerOne{
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Failed to get location name. Error: %@",error.localizedDescription);
-            locationName = [self coordinateStringForLocation:location];
         } else if (placemarks && placemarks.count > 0){
             //A CLPlacemark object stores placemark data for a given latitude and longitude. Placemark data includes information such as the country, state, city, and street address associated with the specified coordinate.
+            NSString *locationName;
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             
             locationName = [placemark locality];
             locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
-            
+            handlerOne(locationName);
             //if the locality returns nil, return the coordinate string instead
             if (!locationName) {
-                locationName = [self coordinateStringForLocation:location];
+                handlerOne([self coordinateStringForLocation:location]);
             }
             
         }
-        [self.delegate locationHelperDidFindLocationName:locationName];
-        [self.fetchDelegate locationHelperDidFindLocationName:locationName];
+
     }];
     
 }
 
+-(void)getLocationName:(NSString *)locationName withCompletion:(LocationNameCompletionHandler)completion{
+    completion(locationName);
+}
+
 //gets the latitude and longitude of a location given an address
--(void)findLatitudeAndLongitudeForAddress:(NSString *)address{
-    __block NSString *locationName;
+-(void)findLatitudeAndLongitudeForAddress:(NSString *)address
+                 andCoordinatesCompletion:(CoordinatesCompletionHandler)handlerTwo
+               withLocationNameCompletion:(LocationNameCompletionHandler)handlerOne{
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder  geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Failed to get lat. and lon. for location. Error: %@",error.description);
         } else if (placemarks && placemarks.count > 0){
             //CLPlacemarker will contain lat. and lon. data as well geographic information such as the country, state, city, etc.
+            NSString *locationName;
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             NSLog(@"Time Zone: %@",placemark.timeZone);
             [self.delegate locationHelperDidGetTimeZone:placemark.timeZone];
             NSLog(@"placemark: %@",placemark);
-            [self.delegate didGetLocation:placemark.location];
-            [self.fetchDelegate didGetLocation:placemark.location];
+            handlerTwo(placemark.location);
             if (placemark.locality == nil || placemark.administrativeArea == nil) {
                 locationName = [[NSString alloc] initWithFormat:@"%@",placemark.name];
             } else {
-            locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
+                locationName = [[NSString alloc] initWithFormat:@"%@, %@",placemark.locality,placemark.administrativeArea];
             }
-            [self.delegate locationHelperDidFindLocationName:locationName];
-            [self.fetchDelegate locationHelperDidFindLocationName:locationName];
+            handlerOne(locationName);
+
         }
     }];
-    
 }
+
+
+
 
 -(NSString *)coordinateStringForLocation:(CLLocation *)location{
     NSString *str = [[NSString alloc] initWithFormat:@"Lat: %f, Lon: %f",location.coordinate.latitude, location.coordinate.longitude];
@@ -132,19 +138,17 @@
     [self.locationManager stopUpdatingLocation];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations withLocationCompletion:(CoordinatesCompletionHandler)completion{
     CLLocation *location = [locations lastObject];
     
-    [self findNameForLocation:location];
     self.location = location;
+    completion(location);
     
     NSLog(@"Location for: Lat: %f Lon: %f",location.coordinate.latitude, location.coordinate.longitude);
     
     //maximize battery power by stopping the location manager as soon as possible
     [self stopUpdating];
     
-    [self.delegate didGetLocation:self.location];
-    [self.fetchDelegate didGetLocation:self.location];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

@@ -10,4 +10,9 @@
 
 @interface SearchViewControlla : UIViewController
 @property(strong, nonatomic) NSMutableArray *searchResults;
+
+
+//+(NSString *)getTheLatitudeAndLongitudeForAddress();
+
+
 @end

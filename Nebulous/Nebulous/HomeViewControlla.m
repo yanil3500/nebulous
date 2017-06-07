@@ -82,11 +82,6 @@
 }
 
 
-#pragma - LocationHelperMethods
--(void)didGetLocation:(CLLocation *)location{
-    self.currentLocation.location = location;
-}
-
 -(void)locationHelperDidFindLocationName:(NSString *)locationName{
     self.currentLocation.locationName = locationName;
     NSLog(@"Location: %@",self.currentLocation.locationName);

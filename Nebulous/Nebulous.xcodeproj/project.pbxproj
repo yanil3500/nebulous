@@ -221,8 +221,8 @@
 				CD5B19041EC377A8009B2B7F /* CurrentWeatherViewControlla.h */,
 				CD5B19051EC377A8009B2B7F /* CurrentWeatherViewControlla.m */,
 				CD1363311EC0E5E300AE71A2 /* HomeViewControlla.h */,
-				CD12126C1EC2A15500D3FE36 /* WeekViewControlla.h */,
 				CD1363321EC0E5E300AE71A2 /* HomeViewControlla.m */,
+				CD12126C1EC2A15500D3FE36 /* WeekViewControlla.h */,
 				CD12126D1EC2A15500D3FE36 /* WeekViewControlla.m */,
 			);
 			name = controlla;

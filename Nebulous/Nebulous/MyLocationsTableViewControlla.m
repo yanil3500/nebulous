@@ -81,7 +81,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected locaiton : %@", self.savedLocations[indexPath.row]);
-    [[LocationHelper shared] findLatitudeAndLongitudeForAddress:self.savedLocations[indexPath.row]];
+//    [[LocationHelper shared] findLatitudeAndLongitudeForAddress:self.savedLocations[indexPath.row]];
     [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
